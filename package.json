@@ -1,7 +1,7 @@
 {
-  "name": "angular2-quickstart",
+  "name": "angular2-appcheck",
   "version": "1.0.0",
-  "description": "QuickStart package.json from the documentation, supplemented with testing support",
+  "description": "Toy project that displays version information of dummy applications using Angular 2 and ng2-material",
   "scripts": {
     "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
     "docker-build": "docker build -t ng2-quickstart .",
@@ -21,7 +21,7 @@
   "license": "ISC",
   "dependencies": {
     "a2-in-memory-web-api": "^0.1.17",
-    "angular2": "2.0.0-beta.17",
+    "angular2": "2.0.0-beta.14",
     "bootstrap": "^3.3.6",
     "es6-shim": "^0.35.0",
     "ng2-material": "^0.3.7",

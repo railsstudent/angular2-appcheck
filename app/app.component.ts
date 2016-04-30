@@ -22,6 +22,13 @@ import {MATERIAL_DIRECTIVES, Media, SidenavService} from "ng2-material/all";
       </md-content>
     </md-sidenav>
     <md-content flex layout-padding>
+      <md-toolbar>
+        <div class="md-toolbar-tools">
+          <h2>
+            Application Version Checker
+          </h2>
+        </div>
+      </md-toolbar>
       <div layout="column" layout-fill layout-align="top center">
         <p>
           The left sidenav will 'lock open' on a medium (>=960px wide) device.
