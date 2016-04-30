@@ -3,6 +3,8 @@ import {MATERIAL_DIRECTIVES, Media, SidenavService} from "ng2-material/all";
 
 import {FactoryComponent} from "./factory/factory.component";
 
+// communicate between sibling components
+// http://stackoverflow.com/questions/35685801/angular-2-event-catching-between-sibling-components
 @Component({
     selector: 'main-nav',
     directives: [MATERIAL_DIRECTIVES, FactoryComponent  ],

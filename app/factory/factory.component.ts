@@ -13,9 +13,13 @@ import {Factory} from './model/factory';
 export class FactoryComponent {
 
   factories: Array<Factory>;
-  
+
   //  factory
   constructor(_factoryService: FactoryService) {
     this.factories = _factoryService.getFactories();
+  }
+
+  loadFactory(factory: Factory) {
+     console.log('Selected factory code: ' + factory.name + ', factory name: ' + factory.name);
   }
 }
