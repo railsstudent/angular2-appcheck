@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <title>Application Checking Tool</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+    <!-- 1. Load libraries -->
+    <!-- IE required polyfills, in this exact order -->
+    <script src="node_modules/es6-shim/es6-shim.min.js"></script>
+    <script src="node_modules/angular2/es6/dev/src/testing/shims_for_IE.js"></script>
+
+    <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src="node_modules/rxjs/bundles/Rx.js"></script>
+    <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+    <!-- added by Connie Leung, 20160430 -->
+    <script src="node_modules/ng2-material/all.js"></script>
+    <!-- 2. Configure SystemJS -->
+
+    <!-- 3. load ng-material2 -->
+    <link rel="stylesheet" href="node_modules/ng2-material/dist/ng2-material.css">
+    <link rel="stylesheet" href="node_modules/ng2-material/dist/font.css">
+    <!-- 3. end ng-material2-->
+
+    <!-- http://stackoverflow.com/questions/35059201/angular2-trouble-in-integrating-ng2-material -->
+    <script>
+      System.config({
+        packages: {
+          app: {
+            format: 'register',
+            defaultExtension: 'js'
+          },
+          'ng2-material': {
+              defaultExtension: 'js',
+          }
+        },
+        map: {
+            'ng2-material': 'node_modules/ng2-material'
+        }
+      });
+      System.import('app/main')
+            .then(null, console.error.bind(console));
+    </script>
+  </head>
+  <!-- 3. Display the application -->
+  <body>
+    <main-nav>Loading...</main-nav>
+  </body>
+</html>
