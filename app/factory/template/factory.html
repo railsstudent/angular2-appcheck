@@ -1,9 +1,8 @@
 <div>
   <md-content>
-    <md-subheader class="md-no-sticky">Factory List</md-subheader>
     <md-list>
       <md-list-item *ngFor="#factory of factories">
-          <button md-raised-button class="md-raised" (click)="loadFactory(factory)">{{factory.name}}</button>
+          <button md-button (click)="loadFactory(factory)">{{factory.name}}</button>
           <md-divider></md-divider>
       </md-list-item>
     </md-list>

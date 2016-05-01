@@ -1,6 +1,24 @@
 <div>
   <h1>Selected Factory:{{selectedFactory.name}}</h1>
   <md-content>
+    <md-subheader class="md-no-sticky">Application List</md-subheader>
+    <md-data-table layout-fill>
+      <thead>
+        <tr>
+         <th class="md-text-cell">Id</th>
+         <th class="md-text-cell">Name</th>
+         <th class="md-text-cell">&nbsp;</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr *ngFor="#app of selectedAppList">
+         <td class="md-text-cell">{{ app.id }}</td>
+         <td class="md-text-cell">{{ app.name }}</td>
+         <td><button md-raised-button class="md-accent md-hue-1" (click)="displayAppDetail(app.id)">Check</button></td>
+       </tr>
+     </tbody>
+    </md-data-table>
+    <!--
     <md-list>
       <md-subheader class="md-no-sticky">Application List</md-subheader>
        <md-list-item class="md-3-line" *ngFor="#app of selectedAppList">
@@ -10,5 +28,6 @@
            <button md-raised-button class="md-accent md-hue-1">Check</button>
        </md-list-item>
     </md-list>
+  -->
   </md-content>
 </div>

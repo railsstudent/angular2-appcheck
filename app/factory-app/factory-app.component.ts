@@ -45,4 +45,8 @@ export class FactoryAppListComponent implements OnInit, OnChanges {
   displayAppList(code: string) {
       this.selectedAppList = this.factoryAppListService.getAppListByFactory(code);
   }
+
+  displayAppDetail(appId: number) {
+    console.log("app id: " + appId);
+  }
 }
