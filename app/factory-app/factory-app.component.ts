@@ -1,6 +1,7 @@
-import {Component} from 'angular2/core';
-import {MATERIAL_DIRECTIVES} from "ng2-material/all";
-import {FactoryAppListService} from "./service/factory-app.service";
+import {Component, Input, OnInit, OnChanges, SimpleChange} from 'angular2/core';
+import {MATERIAL_DIRECTIVES} from 'ng2-material/all';
+import {FactoryAppListService} from './service/factory-app.service';
+import {Factory} from '../factory/model/factory';
 
 @Component({
   selector: 'factory-app-list',
@@ -8,16 +9,40 @@ import {FactoryAppListService} from "./service/factory-app.service";
   directives: [MATERIAL_DIRECTIVES],
   providers: [FactoryAppListService]
 })
-export class FactoryAppListComponent {
+export class FactoryAppListComponent implements OnInit, OnChanges {
 
-  //factories: Array<Factory>;
+  @Input()
+  selectedFactory : Factory;
 
-  //  factory
-  constructor() {
-//    this.factories = _factoryService.getFactories();
+  factoryAppListService : FactoryAppListService;
+  selectedAppList : any;
+
+  ngOnInit() {
+     this.selectedFactory = new Factory("TBD", "No factory selected");
   }
 
-  // loadFactory(factory: Factory) {
-  //    console.log('Selected factory code: ' + factory.name + ', factory name: ' + factory.name);
-  // }
+  ngOnChanges(changes: {[propKey:string]: SimpleChange}){
+
+    for (let propName in changes) {
+      if (propName === 'selectedFactory')  {
+        let changedProp = changes[propName];
+        let from = JSON.stringify(changedProp.previousValue);
+        let to =   JSON.stringify(changedProp.currentValue);
+        console.log('from value of selectedFactory: ' + from);
+        console.log('to value of selectedFactory: ' +  to);
+        if (changedProp.currentValue) {
+            this.displayAppList(changedProp.currentValue.code);
+        }
+      }
+    }
+  }
+
+  //  factory app list
+  constructor(_factoryAppListService: FactoryAppListService) {
+    this.factoryAppListService = _factoryAppListService;
+  }
+
+  displayAppList(code: string) {
+      this.selectedAppList = this.factoryAppListService.getAppListByFactory(code);
+  }
 }

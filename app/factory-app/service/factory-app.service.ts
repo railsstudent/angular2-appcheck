@@ -1,25 +1,28 @@
 import {Injectable} from 'angular2/core';
+import * as _ from 'lodash';
 
 @Injectable()
 export class FactoryAppListService {
 
-//    factories: Array<Factory>;
+    mapFactoryApp = new Map();
 
     constructor() {
-      // this.factories = [
-      //   new Factory('TAA', 'TAA Factory (China)'),
-      //   new Factory('PAP', 'PAP Factory (Malaysia)'),
-      //   new Factory('IG', 'IG Factory (Malaysia)'),
-      //   new Factory('TG1/3', 'Thai Garment 1/3 (Thailand)'),
-      //   new Factory('TG2/4', 'Thai Garment 2/4 (Thailand)'),
-      //   new Factory('MCL', 'MCL Factory (Thailand)'),
-      //   new Factory('TAV/TV2', 'TAV/TV2 Factory (Vietnam)'),
-      //   new Factory('VNG', 'VNG Factory (Vietnam)'),
-      //   new Factory('KAT', 'KAT Factory (Indonesia)')
-      // ];
+      let codes = [ 'TAA', 'PAP', 'IG', 'TG1/3', 'TG2/4', 'MCL', 'TAV/TV2', 'VNG', 'KAT'];
+
+      var ref = this;
+      _.forEach(codes, function(code) {
+          var appArray = [];
+          _.forEach (_.range(0, 5, 1), function(i) {
+              appArray.push(code + '_Application ' + i);
+          })
+          ref.mapFactoryApp.set(code, appArray);
+      });
     }
 
-    // getFactories() {
-    //     return this.factories;
-    // }
+    getAppListByFactory(code: string) {
+         if (this.mapFactoryApp.has(code)) {
+           return this.mapFactoryApp.get(code);
+         }
+         return [];
+    }
 }

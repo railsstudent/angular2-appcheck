@@ -1,4 +1,4 @@
-<div layout="column" style="height:500px;">
+<div layout="column" style="height:800px;">
   <md-sidenav-container layout="row" flex>
   <md-sidenav name="left" [style]="hasMedia('gt-sm') ? 'side' : 'over'">
     <md-toolbar class="md-theme-indigo">
@@ -9,12 +9,12 @@
         Close Sidenav Left
       </button>
       <!--
-      <p hide-md show-gt-md>
+      <p hide-md show-gt-md>"
         This sidenav is locked open on your device. To go back to the default behavior,
         narrow your display.
       </p>
       -->
-      <factory-list></factory-list>
+      <factory-list (showFactory)="selectedFactory = $event"></factory-list>
     </md-content>
   </md-sidenav>
   <md-content flex layout-padding>
@@ -26,16 +26,19 @@
       </div>
     </md-toolbar>
     <div layout="column" layout-fill layout-align="top center">
+      <!--
       <p>
         The left sidenav will 'lock open' on a medium (>=960px wide) device.
       </p>
       <p>
         The right sidenav will focus on a specific child element.
       </p>
+    -->
       <button md-raised-button (click)="open('left')"
               class="md-primary" hide-gt-md>
         Toggle left
       </button>
+      <factory-app-list  [selectedFactory]="selectedFactory"></factory-app-list>
       <!--
       <button md-raised-button (click)="open('right')"
               [hidden]="rightOpened"
