@@ -1,7 +1,41 @@
 import {Injectable} from 'angular2/core';
 import * as _ from 'lodash';
+import {AppDetail} from '../model/app-detail';
+import {AppDependency} from '../model/app-dependency';
+
+import {FactoryAppListService} from '../../factory-app/service/factory-app.service';
 
 @Injectable()
 export class AppDetailService {
 
+    appDetailList : Array<AppDetail>;
+
+    constructor(factoryAppService: FactoryAppListService) {
+
+      var allApps = factoryAppService.getAppList();
+      var ref = this;
+
+      _.forEach(allApps, function(code, appArray) {
+          var dependencies = [];
+          _.forEach(_.range(0, 3, 1), function(i) {
+              dependencies.push(new AppDependency('Dependency_' + i + '.dll',
+                    'DLL', '1.0.1'));
+          });
+          _.forEach (appArray, function(obj) {
+              var detail = new AppDetail(obj['id'], obj['id'], obj['name'],
+                            '0.0.1', 'desktop', dependencies);
+              ref.appDetailList.push(detail);
+          })
+      });
+    }
+
+    getAppDetail(appId: number) {
+        var app = _.find(this.appDetailList, function(o) {
+                    return _.isEqual(o.appId, appId);
+                });
+        if (_.isNull(app) || _.isUndefined(app)) {
+          return null;
+        }
+        return app;
+     }
 }

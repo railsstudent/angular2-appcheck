@@ -29,4 +29,8 @@ export class FactoryAppListService {
          }
          return [];
     }
+
+    getAppList() {
+        return this.mapFactoryApp;
+    }
 }

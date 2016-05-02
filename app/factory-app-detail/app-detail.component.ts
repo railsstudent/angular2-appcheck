@@ -14,8 +14,10 @@ export class AppDetailComponent  {
   // @Input()
   // selectedFactory : Factory;
 
+  appDetailService : AppDetailService;
+
   //  factory app list
   constructor(_appDetailService: AppDetailService) {
-//    this.factoryAppListService = _factoryAppListService;
+      this.appDetailService = _appDetailService;
   }
 }
