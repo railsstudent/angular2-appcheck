@@ -10,7 +10,7 @@ export class AppDetailService {
 
     appDetailList : Array<AppDetail>;
 
-    constructor(factoryAppService: FactoryAppListService) {
+    constructor(private factoryAppService: FactoryAppListService) {
 
       var allApps = factoryAppService.getAppList();
       var ref = this;
@@ -24,7 +24,7 @@ export class AppDetailService {
                     'DLL', '1.0.1'));
           });
           _.forEach (appArray, function(obj) {
-              var detail = new AppDetail(obj['id'], obj['id'], obj['name'],
+              var detail = new AppDetail(code, obj['id'], obj['id'], obj['name'],
                             '0.0.1', 'desktop', dependencies);
               ref.appDetailList.push(detail);
           })

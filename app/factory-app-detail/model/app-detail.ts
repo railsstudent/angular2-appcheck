@@ -8,9 +8,11 @@ export class AppDetail {
   version: string;
   appType: string;
   dependencies: Array<AppDependency>;
+  code: string;
 
-  constructor (id: number, appId: number, name: string, version: string,
+  constructor (code: string, id: number, appId: number, name: string, version: string,
       appType: string, dependencies: Array<AppDependency>) {
+    this.code = code;
     this.id = id;
     this.appId = appId;
     this.name = name;

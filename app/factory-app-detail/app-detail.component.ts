@@ -16,6 +16,7 @@ import {AppDetail} from './model/app-detail';
 export class AppDetailComponent implements OnInit  {
 
   appDetail : AppDetail;
+  factoryCode : string;
 
   ngOnInit() {
     let appId = this._routeParams.get('appId');
@@ -30,5 +31,14 @@ export class AppDetailComponent implements OnInit  {
   constructor(private _router: Router,
       private _routeParams : RouteParams,
       private _appDetailService: AppDetailService) {
+  }
+
+  onReturn() {
+     if (this.appDetail) {
+       this._router.navigate(["FactoryAppList", { code: this.appDetail.code } ]);
+     } else {
+       // default to TAA
+       this._router.navigate(["FactoryAppList", { code: 'TAA' } ]);
+     }
   }
 }
