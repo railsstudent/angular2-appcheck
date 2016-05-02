@@ -37,5 +37,7 @@ export class FactoryAppListComponent implements OnInit /*, OnChanges*/ {
 
   onSelectApp(appId: number) {
       console.log("app id: " + appId);
+      console.log("route to AppDetailComponent.");
+      this._router.navigate(['AppDetail', { appId: appId }]);
   }
 }

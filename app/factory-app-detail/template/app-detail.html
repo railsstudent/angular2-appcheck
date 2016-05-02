@@ -1,2 +1,25 @@
 
-<h1>xxx</h1>
+<h1>Application Detail</h1>
+<div [hidden]="!appDetail">
+  <div>
+    <h3>Name: {{appDetail.name}}</h3>
+    <h3>Application Type: {{appDetail.appType}}</h3>
+    <h3>Version: {{appDetail.version}}</h3>
+    <md-content>
+      <md-list>
+        <md-subheader class="md-no-sticky">Dependencies</md-subheader>
+        <md-list-item class="md-3-line" *ngFor="#d of appDetail.dependencies; #index=index">
+          <div class="md-list-item-text" layout="column">
+            <h3>Name: {{ d.name }}</h3>
+            <h4>Type: {{ d.type }}</h4>
+            <h4>Version: {{ d.version }}</h4>
+          </div>
+          <md-divider></md-divider>
+        </md-list-item>
+      </md-list>
+    </md-content>
+  </div>
+</div>
+<div [hidden]="appDetail">
+   Application Detail is unavailable.
+</div>

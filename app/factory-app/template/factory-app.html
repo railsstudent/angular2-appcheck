@@ -14,7 +14,7 @@
        <tr *ngFor="#app of selectedAppList">
          <td class="md-text-cell">{{ app.id }}</td>
          <td class="md-text-cell">{{ app.name }}</td>
-         <td><button md-raised-button class="md-accent md-hue-1" (click)="displayAppDetail(app.id)">Check</button></td>
+         <td><button md-raised-button class="md-accent md-hue-1" (click)="onSelectApp(app.id)">Check</button></td>
        </tr>
      </tbody>
     </md-data-table>

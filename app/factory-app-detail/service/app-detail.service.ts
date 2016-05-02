@@ -14,8 +14,10 @@ export class AppDetailService {
 
       var allApps = factoryAppService.getAppList();
       var ref = this;
+      this.appDetailList = new Array<AppDetail>();
 
-      _.forEach(allApps, function(code, appArray) {
+      _.forEach(allApps, function(appArray, code) {
+          console.log(code);
           var dependencies = [];
           _.forEach(_.range(0, 3, 1), function(i) {
               dependencies.push(new AppDependency('Dependency_' + i + '.dll',
@@ -30,8 +32,8 @@ export class AppDetailService {
     }
 
     getAppDetail(appId: number) {
-        var app = _.find(this.appDetailList, function(o) {
-                    return _.isEqual(o.appId, appId);
+        var app = _.find(this.appDetailList, function(detail) {
+                    return _.isEqual(detail.appId, appId);
                 });
         if (_.isNull(app) || _.isUndefined(app)) {
           return null;

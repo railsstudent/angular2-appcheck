@@ -15,6 +15,7 @@ export class AppDetail {
     this.appId = appId;
     this.name = name;
     this.appType = appType;
+    this.version = version;
     this.dependencies = dependencies;
   }
 }

@@ -4,28 +4,26 @@ import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 
 import {FactoryComponent} from "./factory/factory.component";
 import {FactoryAppListComponent} from "./factory-app/factory-app.component";
-import {Factory} from "./factory/model/factory";
+import {AppDetailComponent} from "./factory-app-detail/app-detail.component";
 
 // communicate between sibling components
 // http://stackoverflow.com/questions/35685801/angular-2-event-catching-between-sibling-components
 @Component({
     selector: 'main-nav',
     directives: [MATERIAL_DIRECTIVES, ROUTER_DIRECTIVES,
-                  FactoryComponent, FactoryAppListComponent ],
+                  FactoryComponent, FactoryAppListComponent, AppDetailComponent ],
     providers: [SidenavService],
     templateUrl: 'app/templates/app.html'
 })
 @RouteConfig([
-  {path: '/factory/:code', name: 'FactoryAppList', component: FactoryAppListComponent }
+  {path: '/factory/:code', name: 'FactoryAppList', component: FactoryAppListComponent },
+  {path: '/app/:appId', name: 'AppDetail', component: AppDetailComponent }
 ])
 export class AppComponent {
-
-  selectedFactory: Factory;
 
   // dependency injection
   constructor(public sidenav: SidenavService,
     public media: Media) {
-
   }
 
   hasMedia(breakSize: string): boolean {

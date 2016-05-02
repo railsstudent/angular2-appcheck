@@ -4,7 +4,7 @@ import * as _ from 'lodash';
 @Injectable()
 export class FactoryAppListService {
 
-    mapFactoryApp = new Map();
+    mapFactoryApp = {};
 
     constructor() {
       let codes = [ 'TAA', 'PAP', 'IG', 'TG1/3', 'TG2/4', 'MCL', 'TAV/TV2', 'VNG', 'KAT'];
@@ -19,13 +19,13 @@ export class FactoryAppListService {
               appArray.push({ id: appId, name: code + ' Application Name ' + i });
               appId = appId + 1;
           })
-          ref.mapFactoryApp.set(code, appArray);
+          ref.mapFactoryApp[code] = appArray;
       });
     }
 
     getAppListByFactory(code: string) {
-         if (this.mapFactoryApp.has(code)) {
-           return this.mapFactoryApp.get(code);
+         if (this.mapFactoryApp[code]) {
+            return this.mapFactoryApp[code];
          }
          return [];
     }
