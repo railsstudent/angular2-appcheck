@@ -6,7 +6,7 @@ import * as _ from 'lodash';
 import {DatabaseListService} from './service/database.service';
 
 @Component({
-  selector: 'app-detail',
+  selector: 'database-list',
   templateUrl: 'app/factory-database/template/database-list.html' ,
   directives: [MATERIAL_DIRECTIVES],
   providers: [DatabaseListService]
