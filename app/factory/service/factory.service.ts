@@ -1,4 +1,5 @@
 import {Injectable} from 'angular2/core';
+import * as _ from 'lodash';
 
 import {Factory} from '../model/factory';
 
@@ -23,5 +24,12 @@ export class FactoryService {
 
     getFactories() {
         return this.factories;
+    }
+
+    getFactory(code) {
+        var factory = _.find(this.factories, function(f) {
+                          return f.code === code;
+                      });
+        return factory;
     }
 }

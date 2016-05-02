@@ -16,7 +16,7 @@ export class FactoryAppListService {
       _.forEach(codes, function(code) {
           var appArray = [];
           _.forEach (_.range(0, 5, 1), function(i) {
-              appArray.push({ id: appId, name: code + '_Application ' + i });
+              appArray.push({ id: appId, name: code + ' Application Name ' + i });
               appId = appId + 1;
           })
           ref.mapFactoryApp.set(code, appArray);
