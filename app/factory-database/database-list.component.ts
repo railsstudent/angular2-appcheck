@@ -4,6 +4,7 @@ import {Router, RouteParams} from 'angular2/router';
 import * as _ from 'lodash';
 
 import {DatabaseListService} from './service/database.service';
+import {DatabaseInstance} from './model/database-instance';
 
 @Component({
   selector: 'database-list',
@@ -11,7 +12,28 @@ import {DatabaseListService} from './service/database.service';
   directives: [MATERIAL_DIRECTIVES],
   providers: [DatabaseListService]
 })
-export class DatabaseListComponent  {
+export class DatabaseListComponent  implements OnInit {
 
+  databaseInstanceList : Array<DatabaseInstance>;
 
+  ngOnInit() {
+    let code = this._routeParams.get('code');
+    if (code) {
+       this.databaseInstanceList = this._databaseListService.getDBInstanceByFtyCode(code);
+    } else {
+       this.databaseInstanceList = [];
+    }
+  }
+
+  constructor (private _router : Router,
+      private _routeParams: RouteParams,
+      private _databaseListService: DatabaseListService) {
+
+  }
+
+  onSelectDBInstance(dbId: number) {
+      console.log("database id: " + dbId);
+      console.log("route to DatabaseInstance.");
+      this._router.navigate(['DatabaseInstance', { databaseId: dbId }]);
+  }
 }

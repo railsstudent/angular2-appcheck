@@ -4,4 +4,7 @@ import * as _ from 'lodash';
 @Injectable()
 export class DatabaseListService {
 
+  getDBInstanceByFtyCode(code: string) {
+    return [];
+  }
 }
