@@ -6,11 +6,13 @@ import * as _ from 'lodash';
 import {DatabaseListService} from './service/database-list.service';
 import {DatabaseInstance} from '../factory-database/model/database-instance';
 
+import {FactoryService} from '../factory/service/factory.service';
+
 @Component({
   selector: 'database-list',
   templateUrl: 'app/factory-app/template/database-list.html' ,
   directives: [MATERIAL_DIRECTIVES],
-  providers: [DatabaseListService]
+  providers: [DatabaseListService, FactoryService]
 })
 export class DatabaseListComponent  implements OnInit {
 
