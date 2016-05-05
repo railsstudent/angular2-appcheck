@@ -6,6 +6,7 @@ import {DatabaseInstance} from '../../factory-database/model/database-instance';
 @Injectable()
 export class DatabaseListService {
 
+  mapFactoryDatabase = {};
   instances : Array<DatabaseInstance>;
 
   constructor() {
@@ -14,7 +15,10 @@ export class DatabaseListService {
 //    this.instances.push(new DatabaseInstance());
   }
 
-  getDBInstanceByFtyCode(code: string) {
+  getDBInstanceByFactory(code: string) {
+    if (this.mapFactoryDatabase[code]) {
+       return this.mapFactoryDatabase[code];
+    }
     return [];
   }
 }

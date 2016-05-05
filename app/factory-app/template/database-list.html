@@ -11,15 +11,14 @@
          <th class="md-text-cell">&nbsp;</th>
        </tr>
      </thead>
-     <!--
      <tbody>
-       <tr *ngFor="#app of selectedAppList">
-         <td class="md-text-cell">{{ app.id }}</td>
-         <td class="md-text-cell">{{ app.name }}</td>
-         <td><button md-raised-button class="md-accent md-hue-1" (click)="onSelectApp(app.id)">Check</button></td>
+       <tr *ngFor="#db of databaseInstanceList">
+         <td class="md-text-cell">{{ db.id }}</td>
+         <td class="md-text-cell">{{ db.name }}</td>
+         <td class="md-text-cell">{{ db.type }}</td>
+         <td><button md-raised-button class="md-accent md-hue-1" (click)="onSelectDBInstance(db.id)">Check</button></td>
        </tr>
      </tbody>
-   -->
-    </md-data-table>
+     </md-data-table>
   </md-content>
 </div>

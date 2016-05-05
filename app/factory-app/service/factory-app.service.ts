@@ -1,25 +1,28 @@
 import {Injectable} from 'angular2/core';
 import * as _ from 'lodash';
 
+import {FactoryService} from '../../factory/service/factory.service';
+import {Factory} from '../../factory/model/factory';
+
 @Injectable()
 export class FactoryAppListService {
 
     mapFactoryApp = {};
 
-    constructor() {
-      let codes = [ 'TAA', 'PAP', 'IG', 'TG1/3', 'TG2/4', 'MCL', 'TAV/TV2', 'VNG', 'KAT'];
+    constructor(_factoryService: FactoryService) {
+      let factories =  _factoryService.getFactories();
 
       var ref = this;
       var appId : number;
 
       appId = 1;
-      _.forEach(codes, function(code) {
+      _.forEach(factories, function(factory) {
           var appArray = [];
           _.forEach (_.range(0, 5, 1), function(i) {
-              appArray.push({ id: appId, name: code + ' Application Name ' + i });
+              appArray.push({ id: appId, name: factory.code + ' Application Name ' + i });
               appId = appId + 1;
           })
-          ref.mapFactoryApp[code] = appArray;
+          ref.mapFactoryApp[factory.code] = appArray;
       });
     }
 

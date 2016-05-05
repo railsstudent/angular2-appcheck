@@ -6,12 +6,13 @@ import * as _ from 'lodash';
 import {FactoryAppListService} from '../factory-app/service/factory-app.service';
 import {AppDetailService} from './service/app-detail.service';
 import {AppDetail} from './model/app-detail';
+import {FactoryService} from '../factory/service/factory.service';
 
 @Component({
   selector: 'app-detail',
   templateUrl: 'app/factory-app-detail/template/app-detail.html' ,
   directives: [MATERIAL_DIRECTIVES],
-  providers: [AppDetailService, FactoryAppListService]
+  providers: [AppDetailService, FactoryAppListService, FactoryService]
 })
 export class AppDetailComponent implements OnInit  {
 

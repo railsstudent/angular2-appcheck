@@ -19,7 +19,7 @@ export class DatabaseListComponent  implements OnInit {
   ngOnInit() {
     let code = this._routeParams.get('code');
     if (code) {
-       this.databaseInstanceList = this._databaseListService.getDBInstanceByFtyCode(code);
+       this.databaseInstanceList = this._databaseListService.getDBInstanceByFactory(code);
     } else {
        this.databaseInstanceList = [];
     }
