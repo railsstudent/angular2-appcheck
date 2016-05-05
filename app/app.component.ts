@@ -5,6 +5,7 @@ import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 import {FactoryComponent} from "./factory/factory.component";
 import {FactorySummaryComponent} from "./factory-app/factory-summary.component";
 import {AppDetailComponent} from "./factory-app-detail/app-detail.component";
+import {DatabaseComponent} from "./factory-database/database.component";
 
 // communicate between sibling components
 // http://stackoverflow.com/questions/35685801/angular-2-event-catching-between-sibling-components
@@ -12,13 +13,14 @@ import {AppDetailComponent} from "./factory-app-detail/app-detail.component";
     selector: 'main-nav',
     directives: [MATERIAL_DIRECTIVES, ROUTER_DIRECTIVES,
                   FactorySummaryComponent, FactoryComponent,
-                  AppDetailComponent ],
+                  AppDetailComponent, DatabaseComponent ],
     providers: [SidenavService],
     templateUrl: 'app/templates/app.html'
 })
 @RouteConfig([
   {path: '/factory/:code', name: 'FactorySummary', component: FactorySummaryComponent },
-  {path: '/app/:appId', name: 'AppDetail', component: AppDetailComponent }
+  {path: '/app/:appId', name: 'AppDetail', component: AppDetailComponent },
+  {path: '/database/:dbId', name: 'DatabaseInstance', component: DatabaseComponent }
 ])
 export class AppComponent {
 
