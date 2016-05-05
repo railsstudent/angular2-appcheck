@@ -35,10 +35,10 @@ export class AppDetailComponent implements OnInit  {
 
   onReturn() {
      if (this.appDetail) {
-       this._router.navigate(["FactoryAppList", { code: this.appDetail.code } ]);
+       this._router.navigate(["FactorySummary", { code: this.appDetail.code } ]);
      } else {
        // default to TAA
-       this._router.navigate(["FactoryAppList", { code: 'TAA' } ]);
+       this._router.navigate(["FactorySummary", { code: 'TAA' } ]);
      }
   }
 }

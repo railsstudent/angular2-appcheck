@@ -23,6 +23,6 @@ export class FactoryComponent {
 
   onSelectFactory(factory: Factory) {
      console.log('Selected factory code: ' + factory.code + ', factory name: ' + factory.name);
-     this._router.navigate(['FactoryAppList',  { code: factory.code } ]);
+     this._router.navigate(['FactorySummary',  { code: factory.code } ]);
   }
 }

@@ -6,12 +6,12 @@ import {Factory} from '../factory/model/factory';
 import {FactoryService} from '../factory/service/factory.service';
 
 @Component({
-  selector: 'factory-app-list',
-  templateUrl: 'app/factory-app/template/factory-app.html' ,
+  selector: 'app-list',
+  templateUrl: 'app/factory-app/template/app-list.html' ,
   directives: [MATERIAL_DIRECTIVES],
   providers: [FactoryAppListService, FactoryService]
 })
-export class FactoryAppListComponent implements OnInit /*, OnChanges*/ {
+export class FactoryAppListComponent implements OnInit {
 
   selectedFactory : Factory;
   selectedAppList : any;

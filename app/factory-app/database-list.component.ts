@@ -3,12 +3,12 @@ import {MATERIAL_DIRECTIVES} from 'ng2-material/all';
 import {Router, RouteParams} from 'angular2/router';
 import * as _ from 'lodash';
 
-import {DatabaseListService} from './service/database.service';
-import {DatabaseInstance} from './model/database-instance';
+import {DatabaseListService} from './service/database-list.service';
+import {DatabaseInstance} from '../factory-database/model/database-instance';
 
 @Component({
   selector: 'database-list',
-  templateUrl: 'app/factory-database/template/database-list.html' ,
+  templateUrl: 'app/factory-app/template/database-list.html' ,
   directives: [MATERIAL_DIRECTIVES],
   providers: [DatabaseListService]
 })

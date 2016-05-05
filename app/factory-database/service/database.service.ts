@@ -2,9 +2,9 @@ import {Injectable} from 'angular2/core';
 import * as _ from 'lodash';
 
 @Injectable()
-export class DatabaseListService {
+export class DatabaseService {
 
-  getDBInstanceByFtyCode(code: string) {
+  getDatbaseById(id: number) {
     return [];
   }
 }

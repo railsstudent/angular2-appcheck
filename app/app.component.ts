@@ -3,7 +3,7 @@ import {MATERIAL_DIRECTIVES, Media, SidenavService} from "ng2-material/all";
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 
 import {FactoryComponent} from "./factory/factory.component";
-import {FactoryAppListComponent} from "./factory-app/factory-app.component";
+import {FactorySummaryComponent} from "./factory-app/factory-summary.component";
 import {AppDetailComponent} from "./factory-app-detail/app-detail.component";
 
 // communicate between sibling components
@@ -11,12 +11,13 @@ import {AppDetailComponent} from "./factory-app-detail/app-detail.component";
 @Component({
     selector: 'main-nav',
     directives: [MATERIAL_DIRECTIVES, ROUTER_DIRECTIVES,
-                  FactoryComponent, FactoryAppListComponent, AppDetailComponent ],
+                  FactorySummaryComponent, FactoryComponent,
+                  AppDetailComponent ],
     providers: [SidenavService],
     templateUrl: 'app/templates/app.html'
 })
 @RouteConfig([
-  {path: '/factory/:code', name: 'FactoryAppList', component: FactoryAppListComponent },
+  {path: '/factory/:code', name: 'FactorySummary', component: FactorySummaryComponent },
   {path: '/app/:appId', name: 'AppDetail', component: AppDetailComponent }
 ])
 export class AppComponent {
