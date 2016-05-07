@@ -1,1 +1,30 @@
 <h1>Database</h1>
+<div [hidden]="!dbInstance">
+  <div>
+    <!--
+    <h3>Name: {{appDetail.name}}</h3>
+    <h3>Application Type: {{appDetail.appType}}</h3>
+    <h3>Version: {{appDetail.version}}</h3>
+    <md-content>
+      <md-list>
+        <md-subheader class="md-no-sticky">Dependencies</md-subheader>
+        <md-list-item class="md-3-line" *ngFor="#d of appDetail.dependencies; #index=index">
+          <div class="md-list-item-text" layout="column">
+            <h3>Name: {{ d.name }}</h3>
+            <h4>Type: {{ d.type }}</h4>
+            <h4>Version: {{ d.version }}</h4>
+          </div>
+          <md-divider></md-divider>
+        </md-list-item>
+      </md-list>
+    </md-content>
+  -->
+  </div>
+  <button md-raised-button class="md-accent md-hue-1" (click)="onReturn(dbInstance)">Back</button>
+</div>
+<div [hidden]="dbInstance">
+   <div>
+     Database Instance is unavailable.
+   </div>
+   <button md-raised-button class="md-accent md-hue-1" (click)="onReturn(null)">Back</button>
+</div>
