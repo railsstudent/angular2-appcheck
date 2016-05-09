@@ -1,20 +1,35 @@
-import {Component} from 'angular2/core';
+import {Component, OnInit} from 'angular2/core';
 import {MATERIAL_DIRECTIVES, Media, SidenavService} from "ng2-material/all";
 import {Router, RouteParams} from 'angular2/router';
+
+import {DatabaseListService} from '../factory-app/service/database-list.service';
+import {DatabaseService} from './service/database.service';
 import {DatabaseInstance} from './model/database-instance';
+import {FactoryService} from '../factory/service/factory.service';
 
 
 @Component({
     selector: 'database',
     directives: [MATERIAL_DIRECTIVES ],
-    providers: [SidenavService],
+    providers: [DatabaseService, DatabaseListService, FactoryService],
     templateUrl: 'app/factory-database/template/database.html'
 })
-export class DatabaseComponent {
+export class DatabaseComponent implements OnInit {
 
   dbInstance : DatabaseInstance;
 
-  constructor(private _router: Router) {
+  ngOnInit() {
+    if (this._routeParams.get("dbId")) {
+      let dbId = Number(this._routeParams.get("dbId"));
+      this.dbInstance = this._databaseService.getDatbaseById(dbId);
+    } else {
+      this.dbInstance = null;
+    }
+  }
+
+  constructor(private _router: Router,
+    private _routeParams : RouteParams,
+    private _databaseService : DatabaseService) {
 
   }
 
