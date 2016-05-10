@@ -19,9 +19,10 @@ export class DatabaseComponent implements OnInit {
   dbInstance : DatabaseInstance;
 
   ngOnInit() {
-    if (this._routeParams.get("dbId")) {
-      let dbId = Number(this._routeParams.get("dbId"));
-      this.dbInstance = this._databaseService.getDatbaseById(dbId);
+    if (this._routeParams.get('dbId') && this._routeParams.get('code')) {
+      let dbId = Number(this._routeParams.get('dbId'));
+      let factory = this._routeParams.get('code')
+      this.dbInstance = this._databaseService.getDatbaseById(factory, dbId);
     } else {
       this.dbInstance = null;
     }

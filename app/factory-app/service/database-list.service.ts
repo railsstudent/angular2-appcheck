@@ -39,25 +39,20 @@ export class DatabaseListService {
       });
   }
 
-  getDBInstanceByFactory(code: string) {
-    if (this.mapFactoryDatabase[code]) {
-       return this.mapFactoryDatabase[code];
+  getDBInstanceByFactory(factory: string) {
+    if (this.mapFactoryDatabase[factory]) {
+       return this.mapFactoryDatabase[factory];
     }
     return [];
   }
 
-  getDBInstanceById(id: number) {
-    let result = null;
-    _.forEach(this.mapFactoryDatabase, function(dbArray, code) {
-      _.forEach(dbArray, function(db) {
-          if (_.isEqual(db['id'], id)) {
-             result = db;
-          }
-      });
-    });
-    if (result) { return result; }
-    else {
-      return null;
-    }
+  getDBInstanceById(factory: string, id: number) {
+    let result = this.getDBInstanceByFactory(factory);
+    let instance = _.find(result, function(db) {
+                if (_.isEqual(db['id'], id)) {
+                   return db;
+                }
+              });
+    return instance;    
   }
 }

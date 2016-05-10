@@ -14,7 +14,7 @@ export class DatabaseService {
   constructor(private _databaseListService: DatabaseListService) {
   }
 
-  getDatbaseById(id: number) {
-    return this._databaseListService.getDBInstanceById(id);
+  getDatbaseById(factory: string, id: number) {
+    return this._databaseListService.getDBInstanceById(factory, id);
   }
 }

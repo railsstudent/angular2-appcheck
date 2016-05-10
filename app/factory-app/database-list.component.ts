@@ -33,9 +33,10 @@ export class DatabaseListComponent  implements OnInit {
 
   }
 
-  onSelectDBInstance(dbId: number) {
-      console.log("database id: " + dbId);
+  onSelectDBInstance(instance: DatabaseInstance) {
+      console.log("database id: " + instance.id);
+      console.log("factory code: " + instance.factory);
       console.log("route to DatabaseInstance.");
-      this._router.navigate(['DatabaseInstance', { dbId: dbId }]);
+      this._router.navigate(['DatabaseInstance', { code:  instance.factory, dbId: instance.id }]);
   }
 }
