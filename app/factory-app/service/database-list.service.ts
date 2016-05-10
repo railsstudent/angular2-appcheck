@@ -31,7 +31,7 @@ export class DatabaseListService {
                   dbSchemaId = dbSchemaId + 1;
               });
               let dbInstance = new DatabaseInstance(dbId, factory.code, factory.code
-                  + '_Instance_' + dbId, 'DB2', dbSchema);
+                  + '_Instance_' + dbId, 'DB2', 350, dbSchema);
               dbArray.push(dbInstance);
               dbId = dbId + 1;
           })
@@ -48,11 +48,12 @@ export class DatabaseListService {
 
   getDBInstanceById(factory: string, id: number) {
     let result = this.getDBInstanceByFactory(factory);
-    let instance = _.find(result, function(db) {
+    let foundDb = null;
+    _.forEach(result, function(db) {
                 if (_.isEqual(db['id'], id)) {
-                   return db;
+                    foundDb = db;
                 }
               });
-    return instance;    
+    return foundDb;
   }
 }
