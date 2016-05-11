@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- added base href by Connie Leung, 20160502 -->
     <base href="/">
-    <!-- end -->    
+    <!-- end -->
     <!--
     <link rel="stylesheet" href="styles.css">
     -->
@@ -21,6 +21,10 @@
     <!-- added by Connie Leung, 20160430 -->
     <script src="node_modules/ng2-material/all.js"></script>
     <!-- 2. Configure SystemJS -->
+    <!-- load ng2-charts -->
+    <script src="node_modules/chart.js/Chart.js"></script>
+    <script src="node_modules/ng2-charts/components/charts/charts.js"></script>
+    <!-- end ng2-charts -->
 
     <!-- 3. load ng-material2 -->
     <link rel="stylesheet" href="node_modules/ng2-material/dist/ng2-material.css">
@@ -36,12 +40,20 @@
             defaultExtension: 'js'
           },
           'ng2-material': {
-              defaultExtension: 'js',
-          }
+              defaultExtension: 'js'
+          },
+          'ng2-charts': {
+              main: 'charts.js'
+          }/*,
+          'charts.js': {
+            defaultExtension: 'js'
+          }*/
         },
         map: {
             'ng2-material': 'node_modules/ng2-material',
-            'lodash': 'node_modules/lodash/lodash.js'
+            'lodash': 'node_modules/lodash/lodash.js',
+            'ng2-charts': 'node_modules/ng2-charts/components/charts'/*,
+            'chart.js': 'node_modules/chart.js'*/
         }
       });
       System.import('app/main')

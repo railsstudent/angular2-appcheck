@@ -2,15 +2,16 @@ import {Component, OnInit} from 'angular2/core';
 import {MATERIAL_DIRECTIVES, Media, SidenavService} from "ng2-material/all";
 import {Router, RouteParams} from 'angular2/router';
 
+import {PieChartComponent} from './piechart.component';
+
 import {DatabaseListService} from '../factory-app/service/database-list.service';
 import {DatabaseService} from './service/database.service';
 import {DatabaseInstance} from './model/database-instance';
 import {FactoryService} from '../factory/service/factory.service';
 
-
 @Component({
     selector: 'database',
-    directives: [MATERIAL_DIRECTIVES ],
+    directives: [MATERIAL_DIRECTIVES, PieChartComponent ],
     providers: [DatabaseService, DatabaseListService, FactoryService],
     templateUrl: 'app/factory-database/template/database.html'
 })
