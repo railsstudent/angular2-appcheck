@@ -5,7 +5,7 @@
     <h3>DB Type: {{dbInstance.type}}</h3>
   </div>
   <div>
-      <pie-chart></pie-chart>
+      <pie-chart [dbId]="dbId" [factory]="factory" ></pie-chart>
   </div>
   <button md-raised-button class="md-accent md-hue-1" (click)="onReturn(dbInstance)">Back</button>
 </div>

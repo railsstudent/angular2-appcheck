@@ -3,14 +3,14 @@ import * as _ from 'lodash';
 import {AppDetail} from '../model/app-detail';
 import {AppDependency} from '../model/app-dependency';
 
-import {FactoryAppListService} from '../../factory-app/service/factory-app.service';
+import {AppListService} from '../../factory-system/service/app-list.service';
 
 @Injectable()
 export class AppDetailService {
 
     appDetailList : Array<AppDetail>;
 
-    constructor(private factoryAppService: FactoryAppListService) {
+    constructor(private factoryAppService: AppListService) {
 
       var allApps = factoryAppService.getAppList();
       var ref = this;

@@ -27,7 +27,7 @@ export class DatabaseListService {
           _.forEach (_.range(0, 5, 1), function(i) {
               let dbSchema = new Array<DatabaseSchema>();
               _.forEach (_.range(0, 6, 1), function(i) {
-                  dbSchema.push(new DatabaseSchema(dbSchemaId, dbId, "Schema" + dbSchemaId, 20));
+                  dbSchema.push(new DatabaseSchema(dbSchemaId, dbId, "Schema" + dbSchemaId, 35));
                   dbSchemaId = dbSchemaId + 1;
               });
               let dbInstance = new DatabaseInstance(dbId, factory.code, factory.code

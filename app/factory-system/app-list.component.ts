@@ -1,17 +1,17 @@
 import {Component, OnInit } from 'angular2/core';
 import {MATERIAL_DIRECTIVES} from 'ng2-material/all';
 import {Router, RouteParams} from 'angular2/router';
-import {FactoryAppListService} from './service/factory-app.service';
+import {AppListService} from './service/app-list.service';
 import {Factory} from '../factory/model/factory';
 import {FactoryService} from '../factory/service/factory.service';
 
 @Component({
   selector: 'app-list',
-  templateUrl: 'app/factory-app/template/app-list.html' ,
+  templateUrl: 'app/factory-system/template/app-list.html' ,
   directives: [MATERIAL_DIRECTIVES],
-  providers: [FactoryAppListService]
+  providers: [AppListService]
 })
-export class FactoryAppListComponent implements OnInit {
+export class AppListComponent implements OnInit {
 
   selectedAppList : any;
 
@@ -27,7 +27,7 @@ export class FactoryAppListComponent implements OnInit {
   //  factory app list
   constructor(private _router: Router,
       private _routeParams: RouteParams,
-      private _factoryAppListService: FactoryAppListService) {
+      private _factoryAppListService: AppListService) {
   }
 
   onSelectApp(appId: number) {

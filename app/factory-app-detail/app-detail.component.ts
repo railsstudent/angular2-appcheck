@@ -3,7 +3,7 @@ import {MATERIAL_DIRECTIVES} from 'ng2-material/all';
 import {Router, RouteParams} from 'angular2/router';
 import * as _ from 'lodash';
 
-import {FactoryAppListService} from '../factory-app/service/factory-app.service';
+import {AppListService} from '../factory-system/service/app-list.service';
 import {AppDetailService} from './service/app-detail.service';
 import {AppDetail} from './model/app-detail';
 import {FactoryService} from '../factory/service/factory.service';
@@ -12,7 +12,7 @@ import {FactoryService} from '../factory/service/factory.service';
   selector: 'app-detail',
   templateUrl: 'app/factory-app-detail/template/app-detail.html' ,
   directives: [MATERIAL_DIRECTIVES],
-  providers: [AppDetailService, FactoryAppListService, FactoryService]
+  providers: [AppDetailService, AppListService, FactoryService]
 })
 export class AppDetailComponent implements OnInit  {
 

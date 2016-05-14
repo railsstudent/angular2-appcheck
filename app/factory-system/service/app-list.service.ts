@@ -5,7 +5,7 @@ import {FactoryService} from '../../factory/service/factory.service';
 import {Factory} from '../../factory/model/factory';
 
 @Injectable()
-export class FactoryAppListService {
+export class AppListService {
 
     mapFactoryApp = {};
 

@@ -1,7 +1,7 @@
 import {Injectable} from 'angular2/core';
 import * as _ from 'lodash';
 
-import {DatabaseListService} from '../../factory-app/service/database-list.service';
+import {DatabaseListService} from '../../factory-system/service/database-list.service';
 
 import {DatabaseInstance} from '../model/database-instance';
 import {DatabaseSchema} from '../model/database-schema';

@@ -1,5 +1,5 @@
 import {Component, OnInit } from 'angular2/core';
-import {FactoryAppListComponent} from './factory-app.component';
+import {AppListComponent} from './app-list.component';
 import {DatabaseListComponent} from './database-list.component';
 import {RouteParams} from 'angular2/router';
 import {Factory} from '../factory/model/factory';
@@ -8,9 +8,9 @@ import {FactoryService} from '../factory/service/factory.service';
 
 @Component({
   selector: 'factory-summary',
-  templateUrl: 'app/factory-app/template/factory-summary.html' ,
+  templateUrl: 'app/factory-system/template/factory-summary.html' ,
   providers: [FactoryService],
-  directives: [FactoryAppListComponent, DatabaseListComponent]
+  directives: [AppListComponent, DatabaseListComponent]
 })
 export class FactorySummaryComponent implements OnInit {
 
