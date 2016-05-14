@@ -6,7 +6,7 @@ import * as _ from 'lodash';
 import {AppListService} from '../factory-system/service/app-list.service';
 import {AppDetailService} from './service/app-detail.service';
 import {AppDetail} from './model/app-detail';
-import {FactoryService} from '../factory/service/factory.service';
+import {FactoryService} from '../factory-list/service/factory.service';
 
 @Component({
   selector: 'app-detail',

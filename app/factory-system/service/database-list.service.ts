@@ -3,7 +3,7 @@ import * as _ from 'lodash';
 
 import {DatabaseInstance} from '../../factory-database/model/database-instance';
 import {DatabaseSchema} from '../../factory-database/model/database-schema';
-import {FactoryService} from '../../factory/service/factory.service';
+import {FactoryService} from '../../factory-list/service/factory.service';
 
 
 @Injectable()

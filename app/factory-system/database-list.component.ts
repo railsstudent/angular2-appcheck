@@ -6,7 +6,7 @@ import * as _ from 'lodash';
 import {DatabaseListService} from './service/database-list.service';
 import {DatabaseInstance} from '../factory-database/model/database-instance';
 
-import {FactoryService} from '../factory/service/factory.service';
+import {FactoryService} from '../factory-list/service/factory.service';
 
 @Component({
   selector: 'database-list',

@@ -8,11 +8,11 @@ import {Factory} from './model/factory';
 // http://stackoverflow.com/questions/35685801/angular-2-event-catching-between-sibling-components
 @Component({
   selector: 'factory-list',
-  templateUrl: 'app/factory/template/factory.html' ,
+  templateUrl: 'app/factory-list/template/factory-list.html' ,
   directives: [MATERIAL_DIRECTIVES],
   providers: [FactoryService]
 })
-export class FactoryComponent {
+export class FactoryListComponent {
 
   factories: Array<Factory>;
 

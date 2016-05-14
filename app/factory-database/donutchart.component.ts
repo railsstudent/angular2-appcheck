@@ -6,7 +6,7 @@ import {CHART_DIRECTIVES} from 'ng2-charts';
 
 import {DatabaseListService} from '../factory-system/service/database-list.service';
 import {DatabaseService} from './service/database.service';
-import {FactoryService} from '../factory/service/factory.service';
+import {FactoryService} from '../factory-list/service/factory.service';
 
 import {DatabaseInstance} from './model/database-instance';
 import {DatabaseSchema} from './model/database-schema';

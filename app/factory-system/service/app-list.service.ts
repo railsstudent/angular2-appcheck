@@ -1,8 +1,8 @@
 import {Injectable} from 'angular2/core';
 import * as _ from 'lodash';
 
-import {FactoryService} from '../../factory/service/factory.service';
-import {Factory} from '../../factory/model/factory';
+import {FactoryService} from '../../factory-list/service/factory.service';
+import {Factory} from '../../factory-list/model/factory';
 
 @Injectable()
 export class AppListService {

@@ -7,7 +7,7 @@ import {DonutChartComponent} from './donutchart.component';
 import {DatabaseListService} from '../factory-system/service/database-list.service';
 import {DatabaseService} from './service/database.service';
 import {DatabaseInstance} from './model/database-instance';
-import {FactoryService} from '../factory/service/factory.service';
+import {FactoryService} from '../factory-list/service/factory.service';
 
 @Component({
     selector: 'database',

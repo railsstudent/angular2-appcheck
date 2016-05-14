@@ -2,7 +2,7 @@ import {Component} from 'angular2/core';
 import {MATERIAL_DIRECTIVES, Media, SidenavService} from "ng2-material/all";
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 
-import {FactoryComponent} from "./factory/factory.component";
+import {FactoryListComponent} from "./factory-list/factory-list.component";
 import {FactorySummaryComponent} from "./factory-system/factory-summary.component";
 import {AppDetailComponent} from "./factory-app-detail/app-detail.component";
 import {DatabaseComponent} from "./factory-database/database.component";
@@ -12,7 +12,7 @@ import {DatabaseComponent} from "./factory-database/database.component";
 @Component({
     selector: 'main-nav',
     directives: [MATERIAL_DIRECTIVES, ROUTER_DIRECTIVES,
-                  FactorySummaryComponent, FactoryComponent,
+                  FactorySummaryComponent, FactoryListComponent,
                   AppDetailComponent, DatabaseComponent ],
     providers: [SidenavService],
     templateUrl: 'app/templates/app.html'
