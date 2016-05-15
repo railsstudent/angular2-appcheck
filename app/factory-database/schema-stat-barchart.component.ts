@@ -68,7 +68,7 @@ export class SchemaStatChartComponent implements OnInit {
          ref.barChartData.push(numSP);
          ref.barChartData.push(numFunc);
          ref.barChartData.push(numIndexes);
-      });
+       }
     }
   }
 
