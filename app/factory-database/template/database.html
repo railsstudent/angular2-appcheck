@@ -1,11 +1,13 @@
 <h1>Database</h1>
 <div [hidden]="!dbInstance">
   <div>
-    <h3>Name: {{dbInstance.name}}</h3>
-    <h3>DB Type: {{dbInstance.type}}</h3>
+    <h3>Name: {{dbInstance.name}}/DB Type: {{dbInstance.type}}</h3>
   </div>
   <div>
-      <pie-chart [dbId]="dbId" [factory]="factory" ></pie-chart>
+      <schema-usage-chart [dbId]="dbId" [factory]="factory" ></schema-usage-chart>
+  <div>
+  <div>
+      <schema-stat-chart [dbId]="dbId" [factory]="factory" ></schema-stat-chart>  
   </div>
   <button md-raised-button class="md-accent md-hue-1" (click)="onReturn(dbInstance)">Back</button>
 </div>

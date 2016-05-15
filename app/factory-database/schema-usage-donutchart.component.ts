@@ -1,5 +1,5 @@
 import {Component, OnInit, Input } from 'angular2/core';
-import {CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass} from 'angular2/common';
+import {CORE_DIRECTIVES} from 'angular2/common';
 import * as _ from 'lodash';
 
 import {CHART_DIRECTIVES} from 'ng2-charts';
@@ -12,16 +12,17 @@ import {DatabaseInstance} from './model/database-instance';
 import {DatabaseSchema} from './model/database-schema';
 
 @Component({
-  selector: 'pie-chart',
-  templateUrl: 'app/factory-database/template/donut-chart.html',
+  selector: 'schema-usage-chart',
+//  styleUrl: 'app/factory-database/chart.css',
+  templateUrl: 'app/factory-database/template/schema-disk-usage-chart.html',
   providers: [ DatabaseService, DatabaseListService, FactoryService ],
-  directives: [CHART_DIRECTIVES]
+  directives: [CHART_DIRECTIVES, CORE_DIRECTIVES]
 })
-export class DonutChartComponent implements OnInit {
+export class SchemaUsageChartComponent implements OnInit {
 
-  // Pie
-  private pieChartLabels = []; // = ['Download Sales', 'In-Store Sales', 'Mail Sales'];
-  private pieChartData = []; // = [300, 500, 100];
+  // Donut
+  private pieChartLabels = [];
+  private pieChartData = [];
   private pieChartType = 'Doughnut';
 
   @Input()
