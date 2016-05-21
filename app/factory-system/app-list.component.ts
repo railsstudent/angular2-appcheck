@@ -1,4 +1,4 @@
-import {Component, OnInit } from 'angular2/core';
+import {Component, OnInit, Input } from 'angular2/core';
 import {MATERIAL_DIRECTIVES} from 'ng2-material/all';
 import {Router, RouteParams} from 'angular2/router';
 import {AppListService} from './service/app-list.service';
@@ -14,13 +14,16 @@ import {FactoryService} from '../factory-list/service/factory.service';
 export class AppListComponent implements OnInit {
 
   selectedAppList : any;
+  factoryCode : string;
 
   ngOnInit() {
-      let code = this._routeParams.get('code');
-       if (code) {
-         this.selectedAppList = this._factoryAppListService.getAppListByFactory(code);
+      console.log("ngOnInit of application list component fired.");
+      this.factoryCode = this._routeParams.get('code');
+       if (this.factoryCode) {
+          this.selectedAppList = this._factoryAppListService.getAppListByFactory(
+                                      this.factoryCode);
        } else {
-         this.selectedAppList = [];
+          this.selectedAppList = [];
        }
   }
 
@@ -34,5 +37,16 @@ export class AppListComponent implements OnInit {
       console.log("app id: " + appId);
       console.log("route to AppDetailComponent.");
       this._router.navigate(['AppDetail', { appId: appId }]);
+  }
+
+  @Input()
+  set refresh(refresh: boolean) {
+      console.log('AppListComponent: refresh = ' + refresh);
+      console.log('AppListComponent: factory code = ' + this.factoryCode);
+      // reload data
+      if (refresh) {
+        this.selectedAppList =
+            this._factoryAppListService.getAppListByFactory(this.factoryCode);
+      }
   }
 }

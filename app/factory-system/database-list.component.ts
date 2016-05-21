@@ -1,4 +1,4 @@
-import {Component, OnInit } from 'angular2/core';
+import {Component, OnInit, Input } from 'angular2/core';
 import {MATERIAL_DIRECTIVES} from 'ng2-material/all';
 import {Router, RouteParams} from 'angular2/router';
 import * as _ from 'lodash';
@@ -17,11 +17,14 @@ import {FactoryService} from '../factory-list/service/factory.service';
 export class DatabaseListComponent  implements OnInit {
 
   databaseInstanceList : Array<DatabaseInstance>;
+  factoryCode : string;
 
   ngOnInit() {
-    let code = this._routeParams.get('code');
-    if (code) {
-       this.databaseInstanceList = this._databaseListService.getDBInstanceByFactory(code);
+    console.log("ngOnInit of database list component fired.");
+    this.factoryCode = this._routeParams.get('code');
+    if (this.factoryCode) {
+       this.databaseInstanceList = this._databaseListService.getDBInstanceByFactory(
+                                        this.factoryCode);
     } else {
        this.databaseInstanceList = [];
     }
@@ -38,5 +41,16 @@ export class DatabaseListComponent  implements OnInit {
       console.log("factory code: " + instance.factory);
       console.log("route to DatabaseInstance.");
       this._router.navigate(['DatabaseInstance', { code:  instance.factory, dbId: instance.id }]);
+  }
+
+  @Input()
+  set refresh(refresh: boolean) {
+      console.log('DatabaseListComponent: refresh = ' + refresh);
+      console.log('DatabaseListComponent: factory code = ' + this.factoryCode);
+      // reload data
+      if (refresh) {
+        this.databaseInstanceList =
+            this._databaseListService.getDBInstanceByFactory(this.factoryCode);
+      }
   }
 }
