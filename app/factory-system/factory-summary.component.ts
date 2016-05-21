@@ -31,7 +31,7 @@ export class FactorySummaryComponent implements OnInit {
     let code = this._routeParams.get('code');
     this.selectedFactory = code ?
         this._factoryService.getFactory(code) :
-        new Factory("TBD", "No factory selected");
+        new Factory('TBD', 'No factory selected', 'N/A');
   }
 
   //  factory summary
