@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output} from 'angular2/core';
+import {Component, OnInit} from 'angular2/core';
 import {MATERIAL_DIRECTIVES} from "ng2-material/all";
 import {Router} from 'angular2/router';
 
@@ -12,13 +12,16 @@ import {Factory} from './model/factory';
   directives: [MATERIAL_DIRECTIVES],
   providers: [FactoryService]
 })
-export class FactoryListComponent {
+export class FactoryListComponent implements OnInit {
 
   factories: Array<Factory>;
 
+  ngOnInit() {
+    this.factories = this._factoryService.getFactories();
+  }
+
   //  factory
-  constructor(private _router: Router, _factoryService: FactoryService) {
-    this.factories = _factoryService.getFactories();
+  constructor(private _router: Router, private _factoryService: FactoryService) {
   }
 
   onSelectFactory(factory: Factory) {

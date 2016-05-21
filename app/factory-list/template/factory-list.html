@@ -2,7 +2,7 @@
   <md-content>
     <md-list>
       <md-list-item *ngFor="#factory of factories">
-          <button md-button (click)="onSelectFactory(factory)">{{factory.name}}</button>
+          <button md-button (click)="onSelectFactory(factory)">{{factory.name}} ({{factory.region}})</button>
           <md-divider></md-divider>
       </md-list-item>
     </md-list>

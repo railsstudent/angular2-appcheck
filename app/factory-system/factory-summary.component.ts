@@ -1,4 +1,5 @@
 import {Component, OnInit } from 'angular2/core';
+import * as _ from 'lodash';
 import {MATERIAL_DIRECTIVES} from 'ng2-material/all';
 import {AppListComponent} from './app-list.component';
 import {DatabaseListComponent} from './database-list.component';
