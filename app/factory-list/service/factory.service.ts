@@ -19,7 +19,7 @@ export class FactoryService {
          this.factories.push(new Factory(
                this.chance.string({length: 3, pool: this.alphabet }),
                this.chance.sentence({words: 3}),
-               this.chance.country()));
+               this.chance.country({full: true})));
        }
        this.factories = _.orderBy(this.factories, ['name'], ['asc']);
     }
