@@ -1,5 +1,6 @@
 <div>
-  <h1>Selected Factory:{{selectedFactory.name}}</h1>
+  <h2>Selected Factory:&nbsp;&nbsp;{{selectedFactory.name}}</h2>
+  <h3>Region:&nbsp;&nbsp;{{selectedFactory.region}}</h3>
   <md-radio-group [(value)]="data.viewMode" layout="row" #group1
     (valueChange)="onChange(group1.value)" >
        <md-radio-button *ngFor="#viewMode of data.viewModeList"
