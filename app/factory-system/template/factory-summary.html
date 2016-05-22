@@ -1,6 +1,7 @@
 <div>
   <h2>Selected Factory:&nbsp;&nbsp;{{selectedFactory.name}}</h2>
-  <h3>Region:&nbsp;&nbsp;{{selectedFactory.region}}</h3>
+  <h3>Country:&nbsp;&nbsp;{{selectedFactory.country}}</h3>
+
   <md-radio-group [(value)]="data.viewMode" layout="row" #group1
     (valueChange)="onChange(group1.value)" >
        <md-radio-button *ngFor="#viewMode of data.viewModeList"
@@ -8,8 +9,10 @@
             [checked]="group1.value == viewMode"
             class="md-warn">{{viewMode}}</md-radio-button>
   </md-radio-group>
-  <app-list [hidden]="!visible.application"
-    [refresh]="visible.application"></app-list>
-  <database-list [hidden]="!visible.database"
-      [refresh]="visible.database"></database-list>
+   <md-content>
+      <app-list [hidden]="!visible.application"
+        [refresh]="visible.application"></app-list>
+      <database-list [hidden]="!visible.database"
+          [refresh]="visible.database"></database-list>
+  </md-content>
 </div>

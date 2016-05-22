@@ -3,11 +3,11 @@ export class Factory {
 
   code: string;
   name: string;
-  region: string;
+  country: string;
 
-  constructor (code: string, name: string, region: string) {
+  constructor (code: string, name: string, country: string) {
     this.code = code;
     this.name = name;
-    this.region = region;
+    this.country = country;
   }
 }

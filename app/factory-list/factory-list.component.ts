@@ -9,8 +9,7 @@ import {Factory} from './model/factory';
 @Component({
   selector: 'factory-list',
   templateUrl: 'app/factory-list/template/factory-list.html' ,
-  directives: [MATERIAL_DIRECTIVES],
-  providers: [FactoryService]
+  directives: [MATERIAL_DIRECTIVES] 
 })
 export class FactoryListComponent implements OnInit {
 

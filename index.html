@@ -35,6 +35,10 @@
     <link rel="stylesheet" href="app/chart.css">
     <!-- 4 load Chart css ends -->
 
+    <!-- 5 load chancejs random untility library -->
+    <script src="node_modules/chance/chance.js"></script>
+    <!-- 5 end -->
+
     <!-- http://stackoverflow.com/questions/35059201/angular2-trouble-in-integrating-ng2-material -->
     <script>
       System.config({
@@ -53,7 +57,8 @@
         map: {
             'ng2-material': 'node_modules/ng2-material',
             'lodash': 'node_modules/lodash/lodash.js',
-            'ng2-charts': 'node_modules/ng2-charts/components/charts'
+            'ng2-charts': 'node_modules/ng2-charts/components/charts',
+            'chance': 'node_modules/chance/chance.js'
         }
       });
       System.import('app/main')

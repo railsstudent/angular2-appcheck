@@ -3,7 +3,6 @@ import {MATERIAL_DIRECTIVES} from 'ng2-material/all';
 import {Router, RouteParams} from 'angular2/router';
 import {AppListService} from './service/app-list.service';
 import {Factory} from '../factory-list/model/factory';
-import {FactoryService} from '../factory-list/service/factory.service';
 
 @Component({
   selector: 'app-list',

@@ -23,6 +23,7 @@
     "a2-in-memory-web-api": "^0.1.17",
     "angular2": "2.0.0-beta.15",
     "bootstrap": "^3.3.6",
+    "chance": "^1.0.3",
     "es6-shim": "^0.35.0",
     "lodash": "^4.12.0",
     "ng2-charts": "1.0.3",

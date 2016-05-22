@@ -6,16 +6,14 @@ import {CHART_DIRECTIVES} from 'ng2-charts';
 
 import {DatabaseListService} from '../factory-system/service/database-list.service';
 import {DatabaseService} from './service/database.service';
-import {FactoryService} from '../factory-list/service/factory.service';
 
 import {DatabaseInstance} from './model/database-instance';
 import {DatabaseSchema} from './model/database-schema';
 
 @Component({
   selector: 'schema-usage-chart',
-//  styleUrl: 'app/factory-database/chart.css',
   templateUrl: 'app/factory-database/template/schema-disk-usage-chart.html',
-  providers: [ DatabaseService, DatabaseListService, FactoryService ],
+  providers: [ DatabaseService, DatabaseListService ],
   directives: [CHART_DIRECTIVES, CORE_DIRECTIVES]
 })
 export class SchemaUsageChartComponent implements OnInit {

@@ -6,16 +6,14 @@ import {CHART_DIRECTIVES} from 'ng2-charts';
 
 import {DatabaseListService} from '../factory-system/service/database-list.service';
 import {DatabaseService} from './service/database.service';
-import {FactoryService} from '../factory-list/service/factory.service';
 
 import {DatabaseInstance} from './model/database-instance';
 import {DatabaseSchema} from './model/database-schema';
 
 @Component({
   selector: 'schema-stat-chart',
-//  styleUrl: 'app/factory-database/chart.css',
   templateUrl: 'app/factory-database/template/schema-stat-chart.html',
-  providers: [ DatabaseService, DatabaseListService, FactoryService ],
+  providers: [ DatabaseService, DatabaseListService ],
   directives: [CHART_DIRECTIVES,CORE_DIRECTIVES,FORM_DIRECTIVES, NgClass]
 })
 export class SchemaStatChartComponent implements OnInit {

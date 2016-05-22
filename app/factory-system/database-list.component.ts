@@ -12,7 +12,7 @@ import {FactoryService} from '../factory-list/service/factory.service';
   selector: 'database-list',
   templateUrl: 'app/factory-system/template/database-list.html' ,
   directives: [MATERIAL_DIRECTIVES],
-  providers: [DatabaseListService, FactoryService]
+  providers: [DatabaseListService]
 })
 export class DatabaseListComponent  implements OnInit {
 

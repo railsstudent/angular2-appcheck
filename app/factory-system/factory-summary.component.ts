@@ -10,14 +10,13 @@ import {FactoryService} from '../factory-list/service/factory.service';
 @Component({
   selector: 'factory-summary',
   templateUrl: 'app/factory-system/template/factory-summary.html' ,
-  providers: [FactoryService],
   directives: [AppListComponent, DatabaseListComponent, MATERIAL_DIRECTIVES]
 })
 export class FactorySummaryComponent implements OnInit {
 
   selectedFactory : Factory;
   data: any = {
-     viewModeList: ['Application', 'Database'],
+     viewModeList: ['Application', 'Database', 'Hardware', 'Virtual Machine'],
      viewMode: 'Application'
   };
 
@@ -31,12 +30,13 @@ export class FactorySummaryComponent implements OnInit {
     let code = this._routeParams.get('code');
     this.selectedFactory = code ?
         this._factoryService.getFactory(code) :
-        new Factory('TBD', 'No factory selected', 'N/A');
+        new Factory('TBD', 'N/A', 'N/A');
   }
 
   //  factory summary
   constructor(private _routeParams: RouteParams,
       private _factoryService: FactoryService) {
+
   }
 
   onChange(viewMode :string) {
