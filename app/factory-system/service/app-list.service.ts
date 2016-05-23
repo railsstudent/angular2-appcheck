@@ -11,15 +11,17 @@ export class AppListService {
 
     constructor(_factoryService: FactoryService) {
       let factories =  _factoryService.getFactories();
-
-      var ref = this;
-      var appId : number;
+      let chance = new Chance();
+      let numApplications: number = chance.integer({min: 5, max: 50});
+      let ref = this;
+      let appId : number;
 
       appId = 1;
       _.forEach(factories, function(factory) {
           var appArray = [];
-          _.forEach (_.range(0, 5, 1), function(i) {
-              appArray.push({ id: appId, name: factory.code + ' Application Name ' + i });
+          _.forEach (_.range(0, numApplications, 1), function(i) {
+              let app_name = chance.sentence({words: 3})
+              appArray.push({ id: appId, name: factory.code + '' + app_name });
               appId = appId + 1;
           })
           ref.mapFactoryApp[factory.code] = appArray;

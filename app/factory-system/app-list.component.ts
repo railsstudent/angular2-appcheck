@@ -7,8 +7,7 @@ import {Factory} from '../factory-list/model/factory';
 @Component({
   selector: 'app-list',
   templateUrl: 'app/factory-system/template/app-list.html' ,
-  directives: [MATERIAL_DIRECTIVES],
-  providers: [AppListService]
+  directives: [MATERIAL_DIRECTIVES] 
 })
 export class AppListComponent implements OnInit {
 

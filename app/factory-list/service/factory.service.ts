@@ -8,18 +8,17 @@ export class FactoryService {
 
     alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     factories: Array<Factory>;
-    chance : any;
 
     constructor() {
        console.log('Factory Service constructor');
-       this.chance = new Chance();
+       let chance = new Chance();
        this.factories = [];
-       let numFty = this.chance.integer({min: 5, max: 15});
+       let numFty = chance.integer({min: 5, max: 15});
        for (let i = 0; i < numFty; i++) {
          this.factories.push(new Factory(
-               this.chance.string({length: 3, pool: this.alphabet }),
-               this.chance.sentence({words: 3}),
-               this.chance.country({full: true})));
+               chance.string({length: 3, pool: this.alphabet }),
+               chance.sentence({words: 3}),
+               chance.country({full: true})));
        }
        this.factories = _.orderBy(this.factories, ['name'], ['asc']);
     }

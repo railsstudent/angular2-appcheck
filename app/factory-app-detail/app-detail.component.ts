@@ -11,7 +11,7 @@ import {AppDetail} from './model/app-detail';
   selector: 'app-detail',
   templateUrl: 'app/factory-app-detail/template/app-detail.html' ,
   directives: [MATERIAL_DIRECTIVES],
-  providers: [AppDetailService, AppListService]
+  providers: [AppDetailService]
 })
 export class AppDetailComponent implements OnInit  {
 
