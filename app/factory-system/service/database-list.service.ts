@@ -13,26 +13,41 @@ export class DatabaseListService {
   instances : Array<DatabaseInstance>;
 
   constructor(_factoryService: FactoryService) {
+
+      const alphabet = 'ABCDEFGHIJKLMINOPRSTUVWXYZ';
+
       this.instances = new Array<DatabaseInstance>();
       let factories =  _factoryService.getFactories();
-
-      var ref = this;
-      var dbId : number;
-      var dbSchemaId: number;
+      let ref = this;
+      let dbId : number;
+      let dbSchemaId: number;
+      let chance = new Chance();
+      let numDatabases = chance.integer({min: 2, max: 10})
 
       dbId = 1;
       dbSchemaId = 1;
       _.forEach(factories, function(factory) {
           let dbArray = new Array<DatabaseInstance>();
-          _.forEach (_.range(0, 5, 1), function(i) {
+          _.forEach (_.range(0, numDatabases, 1), function(i) {
               let dbSchema = new Array<DatabaseSchema>();
-              _.forEach (_.range(0, 10, 1), function(i) {
-                  dbSchema.push(new DatabaseSchema(dbSchemaId, dbId, "Schema" + dbSchemaId, 30,
-                         500, 120, 5, 2500));
+              let numSchemas = chance.integer({min: 1, max: 10});
+              let instanceName = chance.string({pool: alphabet, length: 20});
+              let used: number = 0;
+              _.forEach (_.range(0, numSchemas, 1), function(i) {
+                  let schemaName = chance.string({pool: alphabet, length: 10});
+                  let numTables = chance.integer({min: 100, max: 500});
+                  let numSp = chance.integer({min: 20, max: 150});
+                  let numFunc = chance.integer({min: 50, max: 500});
+                  let numIdx = chance.integer({min: 50, max: 3000});
+                  let memoryUsed = chance.floating({min: 5, max: 50, fixed: 2});
+                  used = used + memoryUsed;
+                  dbSchema.push(new DatabaseSchema(dbSchemaId, dbId, schemaName,
+                         memoryUsed, numTables, numSp, numFunc, numIdx));
                   dbSchemaId = dbSchemaId + 1;
               });
-              let dbInstance = new DatabaseInstance(dbId, factory.code, factory.code
-                  + '_Instance_' + dbId, 'DB2', 350, dbSchema);
+              let storage = chance.floating({fixed: 0, min: used + 1, max: 750});
+              let dbInstance = new DatabaseInstance(dbId, factory.code, instanceName,
+                  'DB2', storage, dbSchema);
               dbArray.push(dbInstance);
               dbId = dbId + 1;
           })
