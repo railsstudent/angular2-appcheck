@@ -2,6 +2,7 @@
 <div [hidden]="!dbInstance">
   <div>
     <h3>Name: {{dbInstance.name}} / DB Type: {{dbInstance.type}}</h3>
+    <h3>Total Space (GB): {{dbInstance.storage}}</h3>
   </div>
   <div>
       <schema-usage-chart [dbId]="dbId" [factory]="factory" ></schema-usage-chart>

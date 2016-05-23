@@ -5,6 +5,7 @@ import {ROUTER_PROVIDERS} from 'angular2/router';
 
 import {FactoryService} from './factory-list/service/factory.service';
 import {AppListService} from './factory-system/service/app-list.service';
+import {DatabaseListService} from './factory-system/service/database-list.service';
 
 bootstrap(AppComponent, [MATERIAL_PROVIDERS, ROUTER_PROVIDERS, FactoryService,
-                        AppListService]);
+                        AppListService, DatabaseListService]);

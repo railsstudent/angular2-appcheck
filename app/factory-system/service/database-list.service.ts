@@ -31,7 +31,7 @@ export class DatabaseListService {
           _.forEach (_.range(0, numDatabases, 1), function(i) {
               let dbSchema = new Array<DatabaseSchema>();
               let numSchemas = chance.integer({min: 1, max: 10});
-              let instanceName = chance.string({pool: alphabet, length: 20});
+              let instanceName = chance.string({pool: alphabet, length: 10});
               let used: number = 0;
               _.forEach (_.range(0, numSchemas, 1), function(i) {
                   let schemaName = chance.string({pool: alphabet, length: 10});
@@ -39,7 +39,7 @@ export class DatabaseListService {
                   let numSp = chance.integer({min: 20, max: 150});
                   let numFunc = chance.integer({min: 50, max: 500});
                   let numIdx = chance.integer({min: 50, max: 3000});
-                  let memoryUsed = chance.floating({min: 5, max: 50, fixed: 2});
+                  let memoryUsed = chance.floating({min: 25, max: 60, fixed: 2});
                   used = used + memoryUsed;
                   dbSchema.push(new DatabaseSchema(dbSchemaId, dbId, schemaName,
                          memoryUsed, numTables, numSp, numFunc, numIdx));

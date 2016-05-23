@@ -5,14 +5,12 @@ import * as _ from 'lodash';
 
 import {DatabaseListService} from './service/database-list.service';
 import {DatabaseInstance} from '../factory-database/model/database-instance';
-
 import {FactoryService} from '../factory-list/service/factory.service';
 
 @Component({
   selector: 'database-list',
   templateUrl: 'app/factory-system/template/database-list.html' ,
-  directives: [MATERIAL_DIRECTIVES],
-  providers: [DatabaseListService]
+  directives: [MATERIAL_DIRECTIVES]
 })
 export class DatabaseListComponent  implements OnInit {
 

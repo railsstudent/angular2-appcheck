@@ -5,14 +5,13 @@ import {Router, RouteParams} from 'angular2/router';
 import {SchemaUsageChartComponent} from './schema-usage-donutchart.component';
 import {SchemaStatChartComponent} from './schema-stat-barchart.component';
 
-import {DatabaseListService} from '../factory-system/service/database-list.service';
 import {DatabaseService} from './service/database.service';
 import {DatabaseInstance} from './model/database-instance';
 
 @Component({
     selector: 'database',
     directives: [MATERIAL_DIRECTIVES, SchemaUsageChartComponent, SchemaStatChartComponent ],
-    providers: [DatabaseService, DatabaseListService],
+    providers: [DatabaseService],
     templateUrl: 'app/factory-database/template/database.html'
 })
 export class DatabaseComponent implements OnInit {

@@ -4,16 +4,14 @@ import * as _ from 'lodash';
 
 import {CHART_DIRECTIVES} from 'ng2-charts';
 
-import {DatabaseListService} from '../factory-system/service/database-list.service';
 import {DatabaseService} from './service/database.service';
-
 import {DatabaseInstance} from './model/database-instance';
 import {DatabaseSchema} from './model/database-schema';
 
 @Component({
   selector: 'schema-usage-chart',
   templateUrl: 'app/factory-database/template/schema-disk-usage-chart.html',
-  providers: [ DatabaseService, DatabaseListService ],
+  providers: [ DatabaseService ],
   directives: [CHART_DIRECTIVES, CORE_DIRECTIVES]
 })
 export class SchemaUsageChartComponent implements OnInit {

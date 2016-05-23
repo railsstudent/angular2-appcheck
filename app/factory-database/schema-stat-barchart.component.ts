@@ -3,17 +3,14 @@ import {CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass} from 'angular2/common';
 import * as _ from 'lodash';
 
 import {CHART_DIRECTIVES} from 'ng2-charts';
-
-import {DatabaseListService} from '../factory-system/service/database-list.service';
 import {DatabaseService} from './service/database.service';
-
 import {DatabaseInstance} from './model/database-instance';
 import {DatabaseSchema} from './model/database-schema';
 
 @Component({
   selector: 'schema-stat-chart',
   templateUrl: 'app/factory-database/template/schema-stat-chart.html',
-  providers: [ DatabaseService, DatabaseListService ],
+  providers: [ DatabaseService ],
   directives: [CHART_DIRECTIVES,CORE_DIRECTIVES,FORM_DIRECTIVES, NgClass]
 })
 export class SchemaStatChartComponent implements OnInit {
