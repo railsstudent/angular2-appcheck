@@ -6,6 +6,7 @@
          <th class="md-text-cell">Id</th>
          <th class="md-text-cell">Database Instance</th>
          <th class="md-text-cell">Database Type</th>
+         <th class="md-text-cell">Storage</th>
          <th class="md-text-cell">&nbsp;</th>
        </tr>
      </thead>
@@ -14,6 +15,7 @@
          <td class="md-text-cell">{{ db.id }}</td>
          <td class="md-text-cell">{{ db.name }}</td>
          <td class="md-text-cell">{{ db.type }}</td>
+         <td class="md-text-cell">{{ db.storage }}</td>
          <td><button md-raised-button class="md-accent md-hue-1" (click)="onSelectDBInstance(db)">Check</button></td>
        </tr>
        <br/>
