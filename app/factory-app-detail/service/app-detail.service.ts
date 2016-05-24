@@ -17,7 +17,7 @@ export class AppDetailService {
       this.appDetailList = new Array<AppDetail>();
 
       _.forEach(allApps, function(appArray, code) {
-          console.log(code);
+//          console.log(code);
           var dependencies = [];
           _.forEach(_.range(0, 3, 1), function(i) {
               dependencies.push(new AppDependency('Dependency_' + i + '.dll',
