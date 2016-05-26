@@ -1,3 +1,4 @@
+
 import {Injectable} from 'angular2/core';
 import * as _ from 'lodash';
 
@@ -10,7 +11,7 @@ import {AppDependency} from '../../factory-app-detail/model/app-dependency';
 export class AppListService {
 
     mapFactoryApp = {};
-    applicationType = ['Desktop', 'Web', 'Mobile', 'Wearable'];
+    appTypeList = ['Desktop', 'Web', 'Mobile', 'Wearable'];
 
     constructor(_factoryService: FactoryService) {
       let factories =  _factoryService.getFactories();
@@ -24,17 +25,35 @@ export class AppListService {
           var appArray = [];
           _.forEach (_.range(0, numApplications, 1), function(i) {
               let app_name = chance.sentence({words: 3})
-              let typeIdx = chance.integer({min: 0, max: this.applicationType.length - 1});
-              let app = { id: appId,
-                        name: app_name,
-                        type: this.applicationType[typeIdx],
-                        dependencies: [] };
+              let typeIdx = chance.integer({min: 0, max: ref.appTypeList.length - 1});
+              let type = ref.appTypeList[typeIdx];
+              let dependencies : Array<AppDependency> = new Array<AppDependency>();
               // generate random data of application dependencies
               let numDependencies = chance.integer({min: 3, max: 50});
               _.forEach(_.range(0, numDependencies, 1), function(i) {
-
+                 let dName = chance.string();
+                 let dMajor = chance.integer({min: 0});
+                 let dMinor = chance.integer({min: 0});
+                 let dRev = chance.integer({min: 0});
+                 let dVersion = dMajor + '.' + dMinor + '.' + dRev;
+                 let dType: string  = '';
+                 if (_.isEqual(type, 'Desktop')) {
+                   dType = 'DLL';
+                 } else if (_.isEqual(type, 'Web')) {
+                   dType = 'Jar';
+                 } else if (_.isEqual(type, 'Mobile')) {
+                   dType = 'Jar';
+                 } else if (_.isEqual(type, 'Wearable')) {
+                   dType = 'Unknown';
+                 }
+                 dependencies.push(new AppDependency(dName, dType, dVersion));
               });
-
+              let major = chance.integer({min: 0});
+              let minor = chance.integer({min: 0});
+              let rev = chance.integer({min: 0});
+              let version = major + '.' + minor + '.' + rev;
+              let app = new AppDetail(factory.code, appId, appId, app_name,
+                  version, type, dependencies);
               appArray.push(app);
               appId = appId + 1;
           })

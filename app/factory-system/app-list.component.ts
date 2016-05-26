@@ -3,11 +3,13 @@ import {MATERIAL_DIRECTIVES} from 'ng2-material/all';
 import {Router, RouteParams} from 'angular2/router';
 import {AppListService} from './service/app-list.service';
 import {Factory} from '../factory-list/model/factory';
+import {AppDetail} from '../factory-app-detail/model/app-detail';
+
 
 @Component({
   selector: 'app-list',
   templateUrl: 'app/factory-system/template/app-list.html' ,
-  directives: [MATERIAL_DIRECTIVES] 
+  directives: [MATERIAL_DIRECTIVES]
 })
 export class AppListComponent implements OnInit {
 
@@ -31,10 +33,11 @@ export class AppListComponent implements OnInit {
       private _factoryAppListService: AppListService) {
   }
 
-  onSelectApp(appId: number) {
-      console.log("app id: " + appId);
+  onSelectApp(app: AppDetail) {
+      console.log("app id: " + app.id);
+      console.log("factory code: " + app.code);
       console.log("route to AppDetailComponent.");
-      this._router.navigate(['AppDetail', { appId: appId }]);
+      this._router.navigate(['AppDetail', { code: app.code, appId: app.id }]);
   }
 
   @Input()

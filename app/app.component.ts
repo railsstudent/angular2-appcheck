@@ -19,7 +19,7 @@ import {DatabaseComponent} from "./factory-database/database.component";
 })
 @RouteConfig([
   {path: '/factory/:code', name: 'FactorySummary', component: FactorySummaryComponent },
-  {path: '/app/:appId', name: 'AppDetail', component: AppDetailComponent },
+  {path: '/factory/:code/app/:appId', name: 'AppDetail', component: AppDetailComponent },
   {path: '/factory/:code/database/:dbId', name: 'DatabaseInstance', component: DatabaseComponent }
 ])
 export class AppComponent {
