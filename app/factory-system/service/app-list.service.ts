@@ -68,6 +68,22 @@ export class AppListService {
          return [];
     }
 
+    getAppByFactoryAndId (code: string, id: number) {
+       let app : AppDetail;
+       let ll : Array<AppDetail> = this.getAppListByFactory(code);
+       if (ll) {
+           _.find(ll, function(l) {
+              if (_.isEqual(l.id, id)) {
+                  app = l;
+              }
+           });
+           if (app) {
+             return app;
+           }
+       }
+       return null;
+    }
+
     getAppList() {
         return this.mapFactoryApp;
     }

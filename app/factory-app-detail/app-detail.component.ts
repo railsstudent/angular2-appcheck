@@ -4,14 +4,12 @@ import {Router, RouteParams} from 'angular2/router';
 import * as _ from 'lodash';
 
 import {AppListService} from '../factory-system/service/app-list.service';
-import {AppDetailService} from './service/app-detail.service';
 import {AppDetail} from './model/app-detail';
 
 @Component({
   selector: 'app-detail',
   templateUrl: 'app/factory-app-detail/template/app-detail.html' ,
-  directives: [MATERIAL_DIRECTIVES],
-  providers: [AppDetailService]
+  directives: [MATERIAL_DIRECTIVES]
 })
 export class AppDetailComponent implements OnInit  {
 
@@ -19,10 +17,11 @@ export class AppDetailComponent implements OnInit  {
   factoryCode : string;
 
   ngOnInit() {
+    let code = this._routeParams.get('code');
     let appId = this._routeParams.get('appId');
-    if (appId) {
+    if (code && appId) {
         let intAppId = Number(appId);
-        this.appDetail = this._appDetailService.getAppDetail(intAppId);
+        this.appDetail = this._appListService.getAppByFactoryAndId(code, intAppId);
     } else {
         this.appDetail = null;
     }
@@ -30,7 +29,7 @@ export class AppDetailComponent implements OnInit  {
 
   constructor(private _router: Router,
       private _routeParams : RouteParams,
-      private _appDetailService: AppDetailService) {
+      private _appListService: AppListService) {
   }
 
   onReturn() {
