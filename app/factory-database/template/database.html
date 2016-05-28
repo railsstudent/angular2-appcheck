@@ -3,6 +3,9 @@
   <div>
     <h3>Name: {{dbInstance.name}} / DB Type: {{dbInstance.type}}</h3>
     <h3>Total Space (GB): {{dbInstance.storage}}</h3>
+    <h3>Total Used Space (GB): {{dbInstance.usedSpace}}</h3>
+    <h3>Total Available Space (GB): {{dbInstance.availSpace}}</h3>
+    <h3>Number of schemas: {{dbInstance.schema.length}}</h3>
   </div>
   <div>
       <schema-usage-chart [dbId]="dbId" [factory]="factory" ></schema-usage-chart>

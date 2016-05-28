@@ -55,7 +55,7 @@ export class DatabaseListService {
       });
   }
 
-  getDBInstanceByFactory(factory: string) {
+  getDBInstancesByFactory(factory: string) {
     if (this.mapFactoryDatabase[factory]) {
        return this.mapFactoryDatabase[factory];
     }
@@ -63,7 +63,7 @@ export class DatabaseListService {
   }
 
   getDBInstanceById(factory: string, id: number) {
-    let result = this.getDBInstanceByFactory(factory);
+    let result = this.getDBInstancesByFactory(factory);
     let foundDb = null;
     _.forEach(result, function(db) {
                 if (_.isEqual(db['id'], id)) {

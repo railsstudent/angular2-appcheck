@@ -21,7 +21,7 @@ export class DatabaseListComponent  implements OnInit {
     console.log("ngOnInit of database list component fired.");
     this.factoryCode = this._routeParams.get('code');
     if (this.factoryCode) {
-       this.databaseInstanceList = this._databaseListService.getDBInstanceByFactory(
+       this.databaseInstanceList = this._databaseListService.getDBInstancesByFactory(
                                         this.factoryCode);
     } else {
        this.databaseInstanceList = [];
@@ -48,7 +48,7 @@ export class DatabaseListComponent  implements OnInit {
       // reload data
       if (refresh) {
         this.databaseInstanceList =
-            this._databaseListService.getDBInstanceByFactory(this.factoryCode);
+            this._databaseListService.getDBInstancesByFactory(this.factoryCode);
       }
   }
 }
