@@ -3,6 +3,7 @@ import * as _ from 'lodash';
 import {MATERIAL_DIRECTIVES} from 'ng2-material/all';
 import {AppListComponent} from './app-list.component';
 import {DatabaseListComponent} from './database-list.component';
+import {HardwareListComponent} from './hardware-list.component';
 import {RouteParams} from 'angular2/router';
 import {Factory} from '../factory-list/model/factory';
 import {FactoryService} from '../factory-list/service/factory.service';
@@ -10,7 +11,8 @@ import {FactoryService} from '../factory-list/service/factory.service';
 @Component({
   selector: 'factory-summary',
   templateUrl: 'app/factory-system/template/factory-summary.html' ,
-  directives: [AppListComponent, DatabaseListComponent, MATERIAL_DIRECTIVES]
+  directives: [AppListComponent, DatabaseListComponent, HardwareListComponent,
+      MATERIAL_DIRECTIVES]
 })
 export class FactorySummaryComponent implements OnInit {
 
@@ -22,7 +24,9 @@ export class FactorySummaryComponent implements OnInit {
 
   visible : any = {
      application: false,
-     database: false
+     database: false,
+     hardware: false,
+     vm: false
   };
 
   ngOnInit() {
@@ -36,12 +40,13 @@ export class FactorySummaryComponent implements OnInit {
   //  factory summary
   constructor(private _routeParams: RouteParams,
       private _factoryService: FactoryService) {
-
   }
 
   onChange(viewMode :string) {
       console.log("selected viewMode: " + viewMode);
       this.visible.application = _.isEqual(viewMode, 'Application');
       this.visible.database = _.isEqual(viewMode, 'Database');
+      this.visible.hardware = _.isEqual(viewMode, 'Hardware');
+      this.visible.vm = _.isEqual(viewMode, 'Virtual Machine');
   }
 }

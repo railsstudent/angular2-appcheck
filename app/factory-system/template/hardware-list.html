@@ -1,0 +1,26 @@
+<md-content>
+    <md-subheader class="md-no-sticky">Hardware List</md-subheader>
+    <md-data-table layout-fill>
+      <thead>
+        <tr>
+         <th class="md-text-cell">Id</th>
+         <th class="md-text-cell">Name</th>
+         <th class="md-text-cell">Manufacturer</th>
+         <th class="md-text-cell">Model</th>
+         <th class="md-text-cell">Year Of Service</th>
+         <th class="md-text-cell">Condition</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr *ngFor="#hardware of hardwareList">
+         <td class="md-text-cell">{{ hardware.id }}</td>
+         <td class="md-text-cell">{{ hardware.name }}</td>
+         <td class="md-text-cell">{{ hardware.manufacturer }}</td>
+         <td class="md-text-cell">{{ hardware.model }}</td>
+         <td class="md-text-cell">{{ hardware.yearOfService }}</td>
+         <td class="md-text-cell">{{ hardware.condition }}</td>
+       </tr>
+       <br/>
+     </tbody>
+     </md-data-table>
+  </md-content>
