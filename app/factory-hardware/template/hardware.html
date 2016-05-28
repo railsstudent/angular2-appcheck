@@ -1,0 +1,18 @@
+
+<h1>Hardware Detail</h1>
+<div [hidden]="!hardware">
+  <div>
+    <h3>Name: {{hardware.name}}</h3>
+    <h3>Manufacturer: {{hardware.manufacturer}}</h3>
+    <h3>Manufacturer: {{hardware.manufacturer}}</h3>
+    <h3>Year Of Service: {{hardware.yearOfService}}</h3>
+    <h3>Condition: {{hardware.condition}}</h3>
+  </div>
+  <button md-raised-button class="md-accent md-hue-1" (click)="onReturn(hardware)">Back</button>
+</div>
+<div [hidden]="hardware">
+   <div>
+     Hardware Detail is unavailable.
+   </div>
+   <button md-raised-button class="md-accent md-hue-1" (click)="onReturn(null)">Back</button>
+</div>

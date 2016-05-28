@@ -5,6 +5,7 @@
         <tr>
          <th class="md-text-cell">Id</th>
          <th class="md-text-cell">Name</th>
+         <th class="md-text-cell">Type</th>
          <th class="md-text-cell">&nbsp;</th>
        </tr>
      </thead>
@@ -12,6 +13,7 @@
        <tr *ngFor="#app of selectedAppList">
          <td class="md-text-cell">{{ app.id }}</td>
          <td class="md-text-cell">{{ app.name }}</td>
+         <td class="md-text-cell">{{ app.appType }}</td>
          <td><button md-raised-button class="md-accent md-hue-1" (click)="onSelectApp(app)">Check</button></td>
        </tr>
        <br />

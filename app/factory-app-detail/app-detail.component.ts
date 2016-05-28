@@ -14,7 +14,6 @@ import {AppDetail} from './model/app-detail';
 export class AppDetailComponent implements OnInit  {
 
   appDetail : AppDetail;
-  factoryCode : string;
 
   ngOnInit() {
     let code = this._routeParams.get('code');

@@ -20,6 +20,8 @@ export class AppListService {
       let ref = this;
       let appId : number;
 
+      const alphabet = 'ABCDEFGHIJKLMINOPRSTUVWXYZ';
+
       appId = 1;
       _.forEach(factories, function(factory) {
           var appArray = [];
@@ -30,11 +32,12 @@ export class AppListService {
               let dependencies : Array<AppDependency> = new Array<AppDependency>();
               // generate random data of application dependencies
               let numDependencies = chance.integer({min: 3, max: 50});
+              let versionConfig = {min:0, max:15};
               _.forEach(_.range(0, numDependencies, 1), function(i) {
-                 let dName = chance.string();
-                 let dMajor = chance.integer({min: 0});
-                 let dMinor = chance.integer({min: 0});
-                 let dRev = chance.integer({min: 0});
+                 let dName = chance.string({pool: alphabet});
+                 let dMajor = chance.integer(versionConfig);
+                 let dMinor = chance.integer(versionConfig);
+                 let dRev = chance.integer(versionConfig);
                  let dVersion = dMajor + '.' + dMinor + '.' + dRev;
                  let dType: string  = '';
                  if (_.isEqual(type, 'Desktop')) {
@@ -48,9 +51,9 @@ export class AppListService {
                  }
                  dependencies.push(new AppDependency(dName, dType, dVersion));
               });
-              let major = chance.integer({min: 0});
-              let minor = chance.integer({min: 0});
-              let rev = chance.integer({min: 0});
+              let major = chance.integer(versionConfig);
+              let minor = chance.integer(versionConfig);
+              let rev = chance.integer(versionConfig);
               let version = major + '.' + minor + '.' + rev;
               let app = new AppDetail(factory.code, appId, appId, app_name,
                   version, type, dependencies);

@@ -1,5 +1,5 @@
 import {Component, OnInit} from 'angular2/core';
-import {MATERIAL_DIRECTIVES, Media, SidenavService} from "ng2-material/all";
+import {MATERIAL_DIRECTIVES} from "ng2-material/all";
 import {Router, RouteParams} from 'angular2/router';
 
 import {SchemaUsageChartComponent} from './schema-usage-donutchart.component';
