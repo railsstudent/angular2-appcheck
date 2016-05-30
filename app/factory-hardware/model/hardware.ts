@@ -1,4 +1,4 @@
-import {Condition} from './ConditionEnum';
+import {Condition} from './condition-enum';
 
 
 export class Hardware {
@@ -9,15 +9,16 @@ export class Hardware {
   model: string;
   manufacturer: string;
   yearOfService : number;
-  condition: Condition;
+  condition: string;
 
   constructor (id: number, code: string, name: string, model: string,
-    manufacturer: string, yearOfService: number, condition: Condition) {
+    manufacturer: string, yearOfService: number, condition: string) {
        this.id = id;
        this.code = code;
        this.name = name;
        this.model = model;
        this.manufacturer = manufacturer;
        this.condition = condition;
+       this.yearOfService = yearOfService;
     }
 }

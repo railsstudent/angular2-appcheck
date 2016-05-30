@@ -10,13 +10,13 @@ import {FactoryService} from '../../factory-list/service/factory.service';
 export class DatabaseListService {
 
   mapFactoryDatabase = {};
-  instances : Array<DatabaseInstance>;
+//  instances : Array<DatabaseInstance>;
 
   constructor(_factoryService: FactoryService) {
 
       const alphabet = 'ABCDEFGHIJKLMINOPRSTUVWXYZ';
 
-      this.instances = new Array<DatabaseInstance>();
+  //    this.instances = new Array<DatabaseInstance>();
       let factories =  _factoryService.getFactories();
       let ref = this;
       let dbId : number;
