@@ -1,0 +1,34 @@
+<md-content>
+    <md-subheader class="md-no-sticky">Virtual Machine List</md-subheader>
+    <md-data-table layout-fill>
+      <thead>
+        <tr>
+         <th class="md-text-cell">Id</th>
+         <th class="md-text-cell">IP Address</th>
+         <th class="md-text-cell">DNS</th>
+         <th class="md-text-cell">OS Platform</th>
+         <th class="md-text-cell">RAM (GB)</th>
+         <th class="md-text-cell">Disk Space (GB)</th>
+         <th class="md-text-cell">Manufacturer</th>
+         <th class="md-text-cell">Model</th>
+         <th class="md-text-cell">Year Of Service</th>
+         <th class="md-text-cell">Condition</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr *ngFor="#vm of vmList">
+         <td class="md-text-cell">{{ vm.id }}</td>
+         <td class="md-text-cell">{{ vm.ipAddress }}</td>
+         <td class="md-text-cell">{{ vm.dns }}</td>
+         <td class="md-text-cell">{{ vm.osPlatform }}</td>
+         <td class="md-text-cell">{{ vm.ram }}</td>
+         <td class="md-text-cell">{{ vm.diskSpace }}</td>
+         <td class="md-text-cell">{{ vm.manufacturer }}</td>
+         <td class="md-text-cell">{{ vm.model }}</td>
+         <td class="md-text-cell">{{ vm.yearOfService }}</td>
+         <td class="md-text-cell">{{ vm.condition }}</td>
+       </tr>
+       <br/>
+     </tbody>
+     </md-data-table>
+  </md-content>
