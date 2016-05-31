@@ -4,6 +4,7 @@ import {MATERIAL_DIRECTIVES} from 'ng2-material/all';
 import {AppListComponent} from './app-list.component';
 import {DatabaseListComponent} from './database-list.component';
 import {HardwareListComponent} from './hardware-list.component';
+import {VirtualMachineListComponent} from './virtual-machine-list.component';
 import {RouteParams} from 'angular2/router';
 import {Factory} from '../factory-list/model/factory';
 import {FactoryService} from '../factory-list/service/factory.service';
@@ -12,7 +13,7 @@ import {FactoryService} from '../factory-list/service/factory.service';
   selector: 'factory-summary',
   templateUrl: 'app/factory-system/template/factory-summary.html' ,
   directives: [AppListComponent, DatabaseListComponent, HardwareListComponent,
-      MATERIAL_DIRECTIVES]
+      MATERIAL_DIRECTIVES, VirtualMachineListComponent]
 })
 export class FactorySummaryComponent implements OnInit {
 
