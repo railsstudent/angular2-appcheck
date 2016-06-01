@@ -37,8 +37,8 @@ export class HardwareListComponent implements OnInit {
       console.log('HardwareListComponent: factory code = ' + this.factoryCode);
       // reload data
       if (refresh) {
-    //    this.selectedAppList =
-    //        this._factoryAppListService.getAppListByFactory(this.factoryCode);
+//        this.hardwareList = this._hardwareListService.getHardwareByFactory(
+//                                         this.factoryCode);
       }
   }
 }

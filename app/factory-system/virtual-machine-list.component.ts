@@ -6,15 +6,19 @@ import {MATERIAL_DIRECTIVES} from "ng2-material/all";
 import {HardwareListService} from './service/hardware-list.service';
 import {Hardware} from '../factory-hardware/model/hardware';
 
+import {VirtualMachineListService} from './service/virtualmachine-list.service';
+import {VirtualMachine} from '../factory-virtualmachine/model/virtual-machine';
+
 @Component({
     selector: 'virtual-machine-list',
     directives: [MATERIAL_DIRECTIVES],
-    templateUrl: 'app/factory-system/template/hardware-list.html'
+    templateUrl: 'app/factory-system/template/virtual-machine-list.html'
 })
 export class VirtualMachineListComponent implements OnInit {
 
   hardwareList: Array<Hardware> = new Array<Hardware>();
   factoryCode: string;
+  vm : Array<VirtualMachine> = new Array<VirtualMachine>();
 
   ngOnInit() {
     console.log("ngOnInit of hardware list component fired.");
@@ -33,8 +37,8 @@ export class VirtualMachineListComponent implements OnInit {
 
   @Input()
   set refresh(refresh: boolean) {
-      console.log('HardwareListComponent: refresh = ' + refresh);
-      console.log('HardwareListComponent: factory code = ' + this.factoryCode);
+      console.log('VirtualMachineListComponent: refresh = ' + refresh);
+      console.log('VirtualMachineListComponent: factory code = ' + this.factoryCode);
       // reload data
       if (refresh) {
     //    this.selectedAppList =
