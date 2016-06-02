@@ -7,7 +7,8 @@ import {FactoryService} from './factory-list/service/factory.service';
 import {AppListService} from './factory-system/service/app-list.service';
 import {DatabaseListService} from './factory-system/service/database-list.service';
 import {HardwareListService} from './factory-system/service/hardware-list.service';
+import {VirtualMachineListService} from './factory-system/service/virtualmachine-list.service';
 
 bootstrap(AppComponent, [MATERIAL_PROVIDERS, ROUTER_PROVIDERS, FactoryService,
                         AppListService, DatabaseListService,
-                        HardwareListService]);
+                        HardwareListService, VirtualMachineListService]);

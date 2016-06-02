@@ -3,35 +3,30 @@ import {CORE_DIRECTIVES} from 'angular2/common';
 import {RouteParams} from 'angular2/router';
 import {MATERIAL_DIRECTIVES} from "ng2-material/all";
 
-import {HardwareListService} from './service/hardware-list.service';
-import {Hardware} from '../factory-hardware/model/hardware';
-
 import {VirtualMachineListService} from './service/virtualmachine-list.service';
 import {VirtualMachine} from '../factory-virtualmachine/model/virtual-machine';
 
 @Component({
     selector: 'virtual-machine-list',
     directives: [MATERIAL_DIRECTIVES],
-    templateUrl: 'app/factory-system/template/virtual-machine-list.html'
+    templateUrl: 'app/factory-system/template/virtualmachine-list.html'
 })
 export class VirtualMachineListComponent implements OnInit {
 
-  hardwareList: Array<Hardware> = new Array<Hardware>();
   factoryCode: string;
-  vm : Array<VirtualMachine> = new Array<VirtualMachine>();
+  vmList : Array<VirtualMachine> = new Array<VirtualMachine>();
 
   ngOnInit() {
-    console.log("ngOnInit of hardware list component fired.");
+    console.log("ngOnInit of virtual machine list component fired.");
     this.factoryCode = this._routeParams.get('code');
     if (this.factoryCode) {
-       this.hardwareList = this._hardwareListService.getHardwareByFactory(
-                                        this.factoryCode);
+       this.vmList = this._vmListService.getVirtualMachineByFactory(this.factoryCode);
     } else {
-       this.hardwareList = [];
+       this.vmList = [];
     }
   }
 
-  constructor(private _hardwareListService: HardwareListService,
+  constructor(private _vmListService : VirtualMachineListService,
     private _routeParams: RouteParams) {
   }
 
@@ -41,8 +36,7 @@ export class VirtualMachineListComponent implements OnInit {
       console.log('VirtualMachineListComponent: factory code = ' + this.factoryCode);
       // reload data
       if (refresh) {
-    //    this.selectedAppList =
-    //        this._factoryAppListService.getAppListByFactory(this.factoryCode);
+          this.vmList = this._vmListService.getVirtualMachineByFactory(this.factoryCode);
       }
   }
 }
