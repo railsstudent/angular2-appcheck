@@ -1,5 +1,6 @@
-# Angular 2 Project that demonstrates angular material (ng2-material) and charts (ng2-charts)
+# Angular 2 Project to get first-hand experience of the framework.
 
+Angular 2 Project that demonstrates angular material (ng2-material) and charts (ng2-charts)
 No plan to upgrade angular2 RC 1 due to issue in ng2-material
 
 ## Install npm packages
