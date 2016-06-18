@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-//import {MATERIAL_DIRECTIVES} from 'ng2-material';
 import {Router, RouteParams} from '@angular/router-deprecated';
 
 import {SchemaUsageChartComponent} from './schema-usage-donutchart.component';

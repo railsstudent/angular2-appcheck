@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {Media} from 'ng2-material';
 import {MD_SIDENAV_DIRECTIVES} from '@angular2-material/sidenav';
 import {RouteConfig, ROUTER_DIRECTIVES} from '@angular/router-deprecated';
+import {MdToolbar} from '@angular2-material/toolbar';
 
 import {FactoryListComponent} from "./factory-list/factory-list.component";
 import {FactorySummaryComponent} from "./factory-system/factory-summary.component";
@@ -11,7 +12,7 @@ import {DatabaseComponent} from "./factory-database/database.component";
 @Component({
     selector: 'main-nav',
     templateUrl: 'app/templates/app.html',
-    directives: [ ROUTER_DIRECTIVES, MD_SIDENAV_DIRECTIVES,
+    directives: [ ROUTER_DIRECTIVES, MD_SIDENAV_DIRECTIVES, MdToolbar,
                  FactorySummaryComponent, FactoryListComponent,
                  AppDetailComponent, DatabaseComponent]
 })

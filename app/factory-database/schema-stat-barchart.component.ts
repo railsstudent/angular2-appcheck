@@ -2,7 +2,7 @@ import {Component, OnInit, Input } from '@angular/core';
 import {CORE_DIRECTIVES, FORM_DIRECTIVES, NgClass} from '@angular/common';
 import * as _ from 'lodash';
 
-import {CHART_DIRECTIVES} from 'ng2-charts';
+import {CHART_DIRECTIVES} from 'ng2-charts/ng2-charts';
 import {DatabaseService} from './service/database.service';
 import {DatabaseInstance} from './model/database-instance';
 import {DatabaseSchema} from './model/database-schema';
@@ -26,7 +26,7 @@ export class SchemaStatChartComponent implements OnInit {
     private barChartSeries = ['# Tables', '# Stored Procedures', '# Functions', '# Indexes'];
     // tables, stored procedure, functions, indexes
     private barChartData = [];
-    public barChartType = 'Bar';
+    public barChartType = 'bar';
     private barChartLegend : boolean = true;
 
   @Input()

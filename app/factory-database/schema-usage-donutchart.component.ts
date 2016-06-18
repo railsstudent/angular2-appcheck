@@ -2,7 +2,7 @@ import {Component, OnInit, Input } from '@angular/core';
 import {CORE_DIRECTIVES} from '@angular/common';
 import * as _ from 'lodash';
 
-import {CHART_DIRECTIVES} from 'ng2-charts';
+import {CHART_DIRECTIVES} from 'ng2-charts/ng2-charts';
 
 import {DatabaseService} from './service/database.service';
 import {DatabaseInstance} from './model/database-instance';
@@ -19,7 +19,7 @@ export class SchemaUsageChartComponent implements OnInit {
   // Donut
   private pieChartLabels = [];
   private pieChartData = [];
-  private pieChartType = 'Doughnut';
+  private pieChartType = 'doughnut';
 
   @Input()
   dbId : number;
