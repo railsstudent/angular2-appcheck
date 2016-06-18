@@ -1,6 +1,5 @@
 import {Component, OnInit } from '@angular/core';
 import * as _ from 'lodash';
-//import {MATERIAL_DIRECTIVES} from 'ng2-material';
 import {AppListComponent} from './app-list.component';
 import {DatabaseListComponent} from './database-list.component';
 import {HardwareListComponent} from './hardware-list.component';
@@ -14,8 +13,7 @@ import {MdRadioButton, MdRadioGroup, MdRadioDispatcher} from '@angular2-material
   selector: 'factory-summary',
   templateUrl: 'app/factory-system/template/factory-summary.html' ,
   directives: [AppListComponent, DatabaseListComponent, HardwareListComponent,
-      /*MATERIAL_DIRECTIVES,*/ VirtualMachineListComponent,
-      MdRadioButton, MdRadioGroup],
+      VirtualMachineListComponent, MdRadioButton, MdRadioGroup],
   providers: [MdRadioDispatcher],
   styles: [`
     md-radio-button {

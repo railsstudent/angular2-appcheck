@@ -12,7 +12,7 @@
        </tr>
      </thead>
      <tbody>
-       <tr *ngFor="#hardware of hardwareList">
+       <tr *ngFor="let hardware of hardwareList">
          <td class="md-text-cell">{{ hardware.id }}</td>
          <td class="md-text-cell">{{ hardware.name }}</td>
          <td class="md-text-cell">{{ hardware.manufacturer }}</td>

@@ -11,7 +11,7 @@
        </tr>
      </thead>
      <tbody>
-       <tr *ngFor="#db of databaseInstanceList">
+       <tr *ngFor="let db of databaseInstanceList">
          <td class="md-text-cell">{{ db.id }}</td>
          <td class="md-text-cell">{{ db.name }}</td>
          <td class="md-text-cell">{{ db.type }}</td>

@@ -20,7 +20,6 @@
     <!-- 2. Configure SystemJS -->
     <!-- load ng2-charts -->
     <script src="node_modules/chart.js/dist/Chart.js"></script>
-    <script src="node_modules/ng2-charts/components/charts/charts.js"></script>
     <!-- end ng2-charts -->
 
     <!-- 3. load ng-material2 -->
@@ -48,7 +47,7 @@
               defaultExtension: 'js', main: 'index.js'
           },
           'ng2-charts': {
-              main: 'charts.js'
+              defaultExtension: 'js', main: 'ng2-charts.js'
           },
           '@angular/core': {defaultExtension: 'js', main: 'index.js'},
           '@angular/common': {defaultExtension: 'js', main: 'index.js'},
@@ -63,14 +62,15 @@
            '@angular2-material/core': {defaultExtension: 'js', main: 'core.js'},
            '@angular2-material/sidenav': {defaultExtension: 'js', main: 'sidenav.js'},
            '@angular2-material/radio': {defaultExtension: 'js', main: 'radio.js'},
-           '@angular2-material/checkbox': {defaultExtension: 'js', main: 'checkbox.js'}
+           '@angular2-material/checkbox': {defaultExtension: 'js', main: 'checkbox.js'},
+           '@angular2-material/toolbar': {defaultExtension: 'js', main: 'toolbar.js'}
         },
 
         map: {
              'app':                        'app', // 'dist',
             'ng2-material': 'node_modules/ng2-material',
             'lodash': 'node_modules/lodash/lodash.js',
-            'ng2-charts': 'node_modules/ng2-charts/components/charts',
+            'ng2-charts': 'node_modules/ng2-charts',
             'chance': 'node_modules/chance/chance.js',
             '@angular':                   'node_modules/@angular',
              'angular2-in-memory-web-api': 'node_modules/angular2-in-memory-web-api',

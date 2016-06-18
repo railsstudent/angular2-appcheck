@@ -16,7 +16,7 @@
        </tr>
      </thead>
      <tbody>
-       <tr *ngFor="#vm of vmList">
+       <tr *ngFor="let vm of vmList">
          <td class="md-text-cell">{{ vm.id }}</td>
          <td class="md-text-cell">{{ vm.ipAddress }}</td>
          <td class="md-text-cell">{{ vm.dns }}</td>

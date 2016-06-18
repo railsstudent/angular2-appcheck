@@ -1,14 +1,12 @@
 import {Component, OnInit, Input } from '@angular/core';
 import {CORE_DIRECTIVES} from '@angular/common';
 import {RouteParams} from '@angular/router-deprecated';
-//import {MATERIAL_DIRECTIVES} from 'ng2-material';
 
 import {HardwareListService} from './service/hardware-list.service';
 import {Hardware} from '../factory-hardware/model/hardware';
 
 @Component({
     selector: 'hardware-list',
-  //  directives: [MATERIAL_DIRECTIVES],
     templateUrl: 'app/factory-system/template/hardware-list.html'
 })
 export class HardwareListComponent implements OnInit {
@@ -37,8 +35,7 @@ export class HardwareListComponent implements OnInit {
       console.log('HardwareListComponent: factory code = ' + this.factoryCode);
       // reload data
       if (refresh) {
-//        this.hardwareList = this._hardwareListService.getHardwareByFactory(
-//                                         this.factoryCode);
+        this.hardwareList = this._hardwareListService.getHardwareByFactory(this.factoryCode);
       }
   }
 }

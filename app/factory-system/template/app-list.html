@@ -10,7 +10,7 @@
        </tr>
      </thead>
      <tbody>
-       <tr *ngFor="#app of selectedAppList">
+       <tr *ngFor="let app of selectedAppList">
          <td class="md-text-cell">{{ app.id }}</td>
          <td class="md-text-cell">{{ app.name }}</td>
          <td class="md-text-cell">{{ app.appType }}</td>
