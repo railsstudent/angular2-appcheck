@@ -35,51 +35,10 @@
     <script src="node_modules/chance/chance.js"></script>
     <!-- 5 end -->
 
-    <!-- http://stackoverflow.com/questions/35059201/angular2-trouble-in-integrating-ng2-material -->
+    <!-- 2. Configure SystemJS -->
+    <script src="systemjs.config.js"></script>
     <script>
-      System.config({
-        packages: {
-          app: {
-            format: 'register',
-            defaultExtension: 'js'
-          },
-          'ng2-material': {
-              defaultExtension: 'js', main: 'index.js'
-          },
-          'ng2-charts': {
-              defaultExtension: 'js', main: 'ng2-charts.js'
-          },
-          '@angular/core': {defaultExtension: 'js', main: 'index.js'},
-          '@angular/common': {defaultExtension: 'js', main: 'index.js'},
-          '@angular/compiler': {defaultExtension: 'js', main: 'index.js'},
-          '@angular/router': {defaultExtension: 'js', main: 'index.js'},
-          '@angular/router-deprecated': {defaultExtension: 'js', main: 'index.js'},
-          '@angular/http': {defaultExtension: 'js', main: 'index.js'},
-          '@angular/platform-browser': {defaultExtension: 'js', main: 'index.js'},
-          '@angular/platform-browser-dynamic': {defaultExtension: 'js', main: 'index.js'},
-          'angular2-in-memory-web-api': { main: 'index.js', defaultExtension: 'js' },
-           'rxjs':                       { defaultExtension: 'js' },
-           '@angular2-material/core': {defaultExtension: 'js', main: 'core.js'},
-           '@angular2-material/sidenav': {defaultExtension: 'js', main: 'sidenav.js'},
-           '@angular2-material/radio': {defaultExtension: 'js', main: 'radio.js'},
-           '@angular2-material/checkbox': {defaultExtension: 'js', main: 'checkbox.js'},
-           '@angular2-material/toolbar': {defaultExtension: 'js', main: 'toolbar.js'}
-        },
-
-        map: {
-             'app':                        'app', // 'dist',
-            'ng2-material': 'node_modules/ng2-material',
-            'lodash': 'node_modules/lodash/lodash.js',
-            'ng2-charts': 'node_modules/ng2-charts',
-            'chance': 'node_modules/chance/chance.js',
-            '@angular':                   'node_modules/@angular',
-             'angular2-in-memory-web-api': 'node_modules/angular2-in-memory-web-api',
-             'rxjs':                       'node_modules/rxjs',
-            '@angular2-material':  'node_modules/@angular2-material'
-        }
-      });
-      System.import('app/main')
-            .then(null, console.error.bind(console));
+        System.import('app').catch(function(err){ console.error(err); });
     </script>
   </head>
   <!-- 3. Display the application -->
