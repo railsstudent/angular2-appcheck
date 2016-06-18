@@ -2,11 +2,11 @@
   <h2>Factory:&nbsp;&nbsp;{{selectedFactory.name}}</h2>
   <h3>Country:&nbsp;&nbsp;{{selectedFactory.country}}</h3>
 
-  <md-radio-group [(value)]="data.viewMode" layout="row" #group1
-    (valueChange)="onChange(group1.value)" >
-       <md-radio-button *ngFor="#viewMode of data.viewModeList"
+  <md-radio-group [(value)]="data.viewMode" layout="row" #group1>
+       <md-radio-button *ngFor="let viewMode of data.viewModeList"
             [value]="viewMode"
             [checked]="group1.value == viewMode"
+            (change)="onChange(viewMode)"
             class="md-warn">{{viewMode}}</md-radio-button>
   </md-radio-group>
    <md-content>

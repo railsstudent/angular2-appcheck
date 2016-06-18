@@ -1,6 +1,6 @@
-import {Component, OnInit, Input } from 'angular2/core';
-import {MATERIAL_DIRECTIVES} from 'ng2-material/all';
-import {Router, RouteParams} from 'angular2/router';
+import {Component, OnInit, Input } from '@angular/core';
+//import {MATERIAL_DIRECTIVES} from 'ng2-material';
+import {Router, RouteParams} from '@angular/router-deprecated';
 import * as _ from 'lodash';
 
 import {DatabaseListService} from './service/database-list.service';
@@ -9,8 +9,8 @@ import {FactoryService} from '../factory-list/service/factory.service';
 
 @Component({
   selector: 'database-list',
-  templateUrl: 'app/factory-system/template/database-list.html' ,
-  directives: [MATERIAL_DIRECTIVES]
+  templateUrl: 'app/factory-system/template/database-list.html' //,
+  //directives: [MATERIAL_DIRECTIVES]
 })
 export class DatabaseListComponent  implements OnInit {
 

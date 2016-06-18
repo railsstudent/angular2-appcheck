@@ -10,25 +10,22 @@
     -->
     <!-- 1. Load libraries -->
     <!-- IE required polyfills, in this exact order -->
-    <script src="node_modules/es6-shim/es6-shim.min.js"></script>
-    <script src="node_modules/angular2/es6/dev/src/testing/shims_for_IE.js"></script>
-
-    <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+    <script src="node_modules/core-js/client/shim.min.js"></script>
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/reflect-metadata/Reflect.js"></script>
     <script src="node_modules/systemjs/dist/system.src.js"></script>
     <script src="node_modules/rxjs/bundles/Rx.js"></script>
-    <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
-    <script src="node_modules/angular2/bundles/router.dev.js"></script>
     <!-- added by Connie Leung, 20160430 -->
-    <script src="node_modules/ng2-material/all.js"></script>
+    <script src="node_modules/ng2-material/index.js"></script>
     <!-- 2. Configure SystemJS -->
     <!-- load ng2-charts -->
-    <script src="node_modules/chart.js/Chart.js"></script>
+    <script src="node_modules/chart.js/dist/Chart.js"></script>
     <script src="node_modules/ng2-charts/components/charts/charts.js"></script>
     <!-- end ng2-charts -->
 
     <!-- 3. load ng-material2 -->
-    <link rel="stylesheet" href="node_modules/ng2-material/dist/ng2-material.css">
-    <link rel="stylesheet" href="node_modules/ng2-material/dist/font.css">
+    <link rel="stylesheet" href="node_modules/ng2-material/ng2-material.css">
+    <link rel="stylesheet" href="node_modules/ng2-material/font/font.css">
     <!-- 3. end ng-material2-->
 
     <!-- 4 load Chart css -->
@@ -48,17 +45,37 @@
             defaultExtension: 'js'
           },
           'ng2-material': {
-              defaultExtension: 'js'
+              defaultExtension: 'js', main: 'index.js'
           },
           'ng2-charts': {
               main: 'charts.js'
-          }
+          },
+          '@angular/core': {defaultExtension: 'js', main: 'index.js'},
+          '@angular/common': {defaultExtension: 'js', main: 'index.js'},
+          '@angular/compiler': {defaultExtension: 'js', main: 'index.js'},
+          '@angular/router': {defaultExtension: 'js', main: 'index.js'},
+          '@angular/router-deprecated': {defaultExtension: 'js', main: 'index.js'},
+          '@angular/http': {defaultExtension: 'js', main: 'index.js'},
+          '@angular/platform-browser': {defaultExtension: 'js', main: 'index.js'},
+          '@angular/platform-browser-dynamic': {defaultExtension: 'js', main: 'index.js'},
+          'angular2-in-memory-web-api': { main: 'index.js', defaultExtension: 'js' },
+           'rxjs':                       { defaultExtension: 'js' },
+           '@angular2-material/core': {defaultExtension: 'js', main: 'core.js'},
+           '@angular2-material/sidenav': {defaultExtension: 'js', main: 'sidenav.js'},
+           '@angular2-material/radio': {defaultExtension: 'js', main: 'radio.js'},
+           '@angular2-material/checkbox': {defaultExtension: 'js', main: 'checkbox.js'}
         },
+
         map: {
+             'app':                        'app', // 'dist',
             'ng2-material': 'node_modules/ng2-material',
             'lodash': 'node_modules/lodash/lodash.js',
             'ng2-charts': 'node_modules/ng2-charts/components/charts',
-            'chance': 'node_modules/chance/chance.js'
+            'chance': 'node_modules/chance/chance.js',
+            '@angular':                   'node_modules/@angular',
+             'angular2-in-memory-web-api': 'node_modules/angular2-in-memory-web-api',
+             'rxjs':                       'node_modules/rxjs',
+            '@angular2-material':  'node_modules/@angular2-material'
         }
       });
       System.import('app/main')

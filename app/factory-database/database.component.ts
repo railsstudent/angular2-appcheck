@@ -1,6 +1,6 @@
-import {Component, OnInit} from 'angular2/core';
-import {MATERIAL_DIRECTIVES} from "ng2-material/all";
-import {Router, RouteParams} from 'angular2/router';
+import {Component, OnInit} from '@angular/core';
+//import {MATERIAL_DIRECTIVES} from 'ng2-material';
+import {Router, RouteParams} from '@angular/router-deprecated';
 
 import {SchemaUsageChartComponent} from './schema-usage-donutchart.component';
 import {SchemaStatChartComponent} from './schema-stat-barchart.component';
@@ -10,7 +10,7 @@ import {DatabaseInstance} from './model/database-instance';
 
 @Component({
     selector: 'database',
-    directives: [MATERIAL_DIRECTIVES, SchemaUsageChartComponent, SchemaStatChartComponent ],
+    directives: [/*MATERIAL_DIRECTIVES,*/ SchemaUsageChartComponent, SchemaStatChartComponent ],
     providers: [DatabaseService],
     templateUrl: 'app/factory-database/template/database.html'
 })

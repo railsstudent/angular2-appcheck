@@ -1,4 +1,4 @@
-import {Injectable} from 'angular2/core';
+import {Injectable} from '@angular/core';
 import * as _ from 'lodash';
 
 import {DatabaseListService} from '../../factory-system/service/database-list.service';

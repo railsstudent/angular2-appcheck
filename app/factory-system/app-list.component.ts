@@ -1,6 +1,6 @@
-import {Component, OnInit, Input } from 'angular2/core';
-import {MATERIAL_DIRECTIVES} from 'ng2-material/all';
-import {Router, RouteParams} from 'angular2/router';
+import {Component, OnInit, Input } from '@angular/core';
+//import {MATERIAL_DIRECTIVES} from 'ng2-material';
+import {Router, RouteParams} from '@angular/router-deprecated';
 import {AppListService} from './service/app-list.service';
 import {Factory} from '../factory-list/model/factory';
 import {AppDetail} from '../factory-app-detail/model/app-detail';
@@ -8,8 +8,8 @@ import {AppDetail} from '../factory-app-detail/model/app-detail';
 
 @Component({
   selector: 'app-list',
-  templateUrl: 'app/factory-system/template/app-list.html' ,
-  directives: [MATERIAL_DIRECTIVES]
+  templateUrl: 'app/factory-system/template/app-list.html'
+  //directives: [MATERIAL_DIRECTIVES]
 })
 export class AppListComponent implements OnInit {
 

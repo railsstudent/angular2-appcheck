@@ -1,5 +1,5 @@
-import {Component, OnInit, Input } from 'angular2/core';
-import {CORE_DIRECTIVES} from 'angular2/common';
+import {Component, OnInit, Input } from '@angular/core';
+import {CORE_DIRECTIVES} from '@angular/common';
 import * as _ from 'lodash';
 
 import {CHART_DIRECTIVES} from 'ng2-charts';

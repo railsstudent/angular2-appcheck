@@ -1,6 +1,6 @@
-import {Component, OnInit } from 'angular2/core';
-import {MATERIAL_DIRECTIVES} from 'ng2-material/all';
-import {Router, RouteParams} from 'angular2/router';
+import {Component, OnInit } from '@angular/core';
+//import {MATERIAL_DIRECTIVES} from 'ng2-material';
+import {Router, RouteParams} from '@angular/router-deprecated';
 import * as _ from 'lodash';
 
 import {AppListService} from '../factory-system/service/app-list.service';
@@ -8,8 +8,8 @@ import {AppDetail} from './model/app-detail';
 
 @Component({
   selector: 'app-detail',
-  templateUrl: 'app/factory-app-detail/template/app-detail.html' ,
-  directives: [MATERIAL_DIRECTIVES]
+  templateUrl: 'app/factory-app-detail/template/app-detail.html' //,
+  //directives: [MATERIAL_DIRECTIVES]
 })
 export class AppDetailComponent implements OnInit  {
 

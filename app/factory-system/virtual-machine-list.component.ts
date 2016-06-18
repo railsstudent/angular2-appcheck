@@ -1,14 +1,14 @@
-import {Component, OnInit, Input } from 'angular2/core';
-import {CORE_DIRECTIVES} from 'angular2/common';
-import {RouteParams} from 'angular2/router';
-import {MATERIAL_DIRECTIVES} from "ng2-material/all";
+import {Component, OnInit, Input } from '@angular/core';
+import {CORE_DIRECTIVES} from '@angular/common';
+import {RouteParams} from '@angular/router-deprecated';
+//import {MATERIAL_DIRECTIVES} from 'ng2-material';
 
 import {VirtualMachineListService} from './service/virtualmachine-list.service';
 import {VirtualMachine} from '../factory-virtualmachine/model/virtual-machine';
 
 @Component({
     selector: 'virtual-machine-list',
-    directives: [MATERIAL_DIRECTIVES],
+  //  directives: [MATERIAL_DIRECTIVES],
     templateUrl: 'app/factory-system/template/virtualmachine-list.html'
 })
 export class VirtualMachineListComponent implements OnInit {

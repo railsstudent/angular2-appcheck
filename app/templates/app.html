@@ -1,14 +1,14 @@
 <div layout="column" style="height:800px;">
-  <md-sidenav-container layout="row" flex>
-  <md-sidenav name="left" [style]="hasMedia('gt-sm') ? 'side' : 'over'">
+  <md-sidenav-layout>
+  <md-sidenav name="left" [style]="hasMedia('gt-sm') ? 'side' : 'over'" #left [opened]="true" mode="side">
     <md-toolbar class="md-theme-indigo">
       <h1 class="md-toolbar-tools">Factory List</h1>
     </md-toolbar>
     <md-content layout-padding>
-      <button md-raised-button (click)="close('left')" class="md-primary" hide-gt-md>
+      <button md-raised-button (click)="left.close()" class="md-primary" hide-gt-md>
         Close Sidenav Left
       </button>
-      <factory-list (showFactory)="selectedFactory = $event"></factory-list>
+      <factory-list></factory-list>
       <!--
       <p hide-md show-gt-md>"
         This sidenav is locked open on your device. To go back to the default behavior,
@@ -34,7 +34,7 @@
         The right sidenav will focus on a specific child element.
       </p>
     -->
-      <button md-raised-button (click)="open('left')"
+      <button md-raised-button (click)="left.toggle()"
               class="md-primary" hide-gt-md>
         Toggle left
       </button>
@@ -68,5 +68,5 @@
     </md-content>
   </md-sidenav>
 -->
-  </md-sidenav-container>
+  </md-sidenav-layout>
 </div>

@@ -1,5 +1,5 @@
 
-import {Injectable} from 'angular2/core';
+import {Injectable} from '@angular/core';
 import * as _ from 'lodash';
 
 import {FactoryService} from '../../factory-list/service/factory.service';
