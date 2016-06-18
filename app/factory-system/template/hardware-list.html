@@ -1,5 +1,10 @@
 <md-content>
-    <md-subheader class="md-no-sticky">Hardware List</md-subheader>
+    <div layout="row">
+    <md-subheader flex class="md-no-sticky">Hardware List</md-subheader>
+      <select flex="20">
+          <option *ngFor="let c of condition" value="{{c}}">{{c}}</option>
+      </select>
+    </div>
     <md-data-table layout-fill>
       <thead>
         <tr>

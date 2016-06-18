@@ -13,6 +13,7 @@ export class HardwareListComponent implements OnInit {
 
   hardwareList: Array<Hardware> = new Array<Hardware>();
   factoryCode: string;
+  condition: string[];
 
   ngOnInit() {
     console.log("ngOnInit of hardware list component fired.");
@@ -23,6 +24,7 @@ export class HardwareListComponent implements OnInit {
     } else {
        this.hardwareList = [];
     }
+    this.condition = this._hardwareListService.getCondition();
   }
 
   constructor(private _hardwareListService: HardwareListService,

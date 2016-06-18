@@ -43,6 +43,10 @@ export class HardwareListService {
 
   }
 
+  getCondition() : string[] {
+    return [ 'All', Condition[0], Condition[1] ];
+  }
+
   getHardwareByFactory(factory: string) {
     if (this.mapFactoryHardware[factory]) {
        return this.mapFactoryHardware[factory];

@@ -53,6 +53,10 @@ export class VirtualMachineListService {
     });
   }
 
+  getCondition() : string[] {
+    return [ 'All', Condition[0], Condition[1] ];
+  }
+
   getVirtualMachineByFactory(factory: string) {
     if (this.mapFactoryVirtualMachine[factory]) {
        return this.mapFactoryVirtualMachine[factory];

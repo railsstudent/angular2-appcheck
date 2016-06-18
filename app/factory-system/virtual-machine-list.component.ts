@@ -1,10 +1,10 @@
 import {Component, OnInit, Input } from '@angular/core';
 import {CORE_DIRECTIVES} from '@angular/common';
 import {RouteParams} from '@angular/router-deprecated';
-//import {MATERIAL_DIRECTIVES} from 'ng2-material';
 
 import {VirtualMachineListService} from './service/virtualmachine-list.service';
 import {VirtualMachine} from '../factory-virtualmachine/model/virtual-machine';
+import {Condition} from '../factory-hardware/model/condition-enum';
 
 @Component({
     selector: 'virtual-machine-list',
@@ -15,6 +15,7 @@ export class VirtualMachineListComponent implements OnInit {
 
   factoryCode: string;
   vmList : Array<VirtualMachine> = new Array<VirtualMachine>();
+  condition: string[];
 
   ngOnInit() {
     console.log("ngOnInit of virtual machine list component fired.");
@@ -24,6 +25,7 @@ export class VirtualMachineListComponent implements OnInit {
     } else {
        this.vmList = [];
     }
+    this.condition = this._vmListService.getCondition();
   }
 
   constructor(private _vmListService : VirtualMachineListService,
