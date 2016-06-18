@@ -1,7 +1,6 @@
-# Angular 2 Pet Project
+# Angular 2 Factory Application Check and Inventory System
 
-Angular 2 Project that demonstrates angular material (ng2-material) and charts (ng2-charts)
-No plan to upgrade angular2 RC 1 due to issue in ng2-material
+Angular 2 Project that demonstrates the usage of angular2 material components (ng2-material) and angular2 charting components (ng2-charts).
 
 ## Install npm packages
 
@@ -14,7 +13,7 @@ npm install
 npm start
 ```
 
-The `npm start` command first compiles the application, 
+The `npm start` command first compiles the application,
 then simultaneously re-compiles and runs the `lite-server`.
 Both the compiler and the server watch for file changes.
 
@@ -43,7 +42,7 @@ Here are the test related scripts:
 
 ## Testing
 
-The QuickStart documentation doesn't discuss testing. 
+The QuickStart documentation doesn't discuss testing.
 This repo adds both karma/jasmine unit test and protractor end-to-end testing support.
 
 These tools are configured for specific conventions described below.
@@ -75,13 +74,13 @@ The `HTML-Reporter` is also wired in. That produces a prettier output; look for 
 
 **BEFORE RUNNING THE FIRST TEST** you must update the Selenium webdriver. Run `npm webdriver:update`.
 
-E2E tests are usually at the project root, above the `app` folder. 
+E2E tests are usually at the project root, above the `app` folder.
 Their filenames must end in `e2e-spec.js`.
 
 E2E tests must be written in JavaScript (the author has not figured out how to write them in TS yet).
 
 Look for the example `e2e-spec.ts` in the root folder.
-Add more `e2e-spec.js` files as you wish (although one usually suffices for small projects); 
+Add more `e2e-spec.js` files as you wish (although one usually suffices for small projects);
 we configured protractor to find them.
 
 
@@ -91,7 +90,7 @@ That command first compiles, then simultaneously starts the Http-Server at `loca
 and launches protractor.  
 
 The pass/fail test results appear at the bottom of the terminal window.
-A custom reporter (see `protractor.config.js`) generates a  `./protractor-results.txt` file 
+A custom reporter (see `protractor.config.js`) generates a  `./protractor-results.txt` file
 which is easier to read; this file is excluded from source control.
 
 Shut it down manually with Ctrl-C.
