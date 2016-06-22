@@ -24,11 +24,11 @@ export class VirtualMachineListService {
     let ref = this;
     let virualMachineId : number;
     let chance = new Chance();
-    let numVM = chance.integer({min: 20, max: 100})
 
     virualMachineId = 1;
     _.forEach(factories, function(factory) {
         let vmArray = new Array<VirtualMachine>();
+        let numVM = chance.integer({min: 20, max: 100})
         _.forEach (_.range(0, numVM, 1), function(i) {
             let ramIdx = chance.integer({min: 0, max: ramChoices.length - 1});
             let vendorIdx = chance.integer({min: 0, max: vendorChoices.length - 1});

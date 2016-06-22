@@ -10,24 +10,22 @@ import {FactoryService} from '../../factory-list/service/factory.service';
 export class DatabaseListService {
 
   mapFactoryDatabase = {};
-//  instances : Array<DatabaseInstance>;
 
   constructor(_factoryService: FactoryService) {
 
       const alphabet = 'ABCDEFGHIJKLMINOPRSTUVWXYZ';
 
-  //    this.instances = new Array<DatabaseInstance>();
       let factories =  _factoryService.getFactories();
       let ref = this;
       let dbId : number;
       let dbSchemaId: number;
       let chance = new Chance();
-      let numDatabases = chance.integer({min: 2, max: 10})
 
       dbId = 1;
       dbSchemaId = 1;
       _.forEach(factories, function(factory) {
           let dbArray = new Array<DatabaseInstance>();
+          let numDatabases = chance.integer({min: 2, max: 10})
           _.forEach (_.range(0, numDatabases, 1), function(i) {
               let dbSchema = new Array<DatabaseSchema>();
               let numSchemas = chance.integer({min: 1, max: 10});

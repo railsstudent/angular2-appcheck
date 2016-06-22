@@ -1,5 +1,10 @@
 <md-content>
-    <md-subheader class="md-no-sticky">Database List</md-subheader>
+    <div layout="row">
+      <md-subheader flex class="md-no-sticky">Database List</md-subheader>
+      <md-pagination name="db" flex="40" [model]="pagination"
+        (on-pagination-change)="detectChange($event)"
+        [items-per-page-options]="availableLength"></md-pagination>
+    </div>
     <md-data-table layout-fill>
       <thead>
         <tr>
@@ -21,4 +26,9 @@
        <br/>
      </tbody>
      </md-data-table>
+     <div layout="row">
+       <span flex></span>
+       <md-pagination name="db" flex="40" [model]="pagination" (on-pagination-change)="detectChange($event)"
+         [items-per-page-options]="availableLength"></md-pagination>
+     </div>
   </md-content>

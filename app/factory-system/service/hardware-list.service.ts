@@ -21,11 +21,11 @@ export class HardwareListService {
     let ref = this;
     let hardwareId : number;
     let chance = new Chance();
-    let numHardwares = chance.integer({min: 5, max: 100})
 
     hardwareId = 1;
     _.forEach(factories, function(factory) {
         let hardwareArray = new Array<Hardware>();
+        let numHardwares = chance.integer({min: 5, max: 100})
         _.forEach (_.range(0, numHardwares, 1), function(i) {
             let idx = chance.integer({min: 0, max: hardwareType.length - 1});
             let model = chance.sentence({words: 3});

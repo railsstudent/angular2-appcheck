@@ -1,6 +1,7 @@
 import {Component, OnInit, Input } from '@angular/core';
 import {Router, RouteParams} from '@angular/router-deprecated';
 import * as _ from 'lodash';
+import {MATERIAL_DIRECTIVES} from "ng2-material";
 
 import {DatabaseListService} from './service/database-list.service';
 import {DatabaseInstance} from '../factory-database/model/database-instance';
@@ -8,12 +9,15 @@ import {FactoryService} from '../factory-list/service/factory.service';
 
 @Component({
   selector: 'database-list',
-  templateUrl: 'app/factory-system/template/database-list.html'
+  templateUrl: 'app/factory-system/template/database-list.html',
+  directives: [MATERIAL_DIRECTIVES]
 })
 export class DatabaseListComponent  implements OnInit {
 
   databaseInstanceList : Array<DatabaseInstance>;
   factoryCode : string;
+  pagination = {};
+  availableLength = [5];
 
   ngOnInit() {
     console.log("ngOnInit of database list component fired.");
@@ -24,6 +28,12 @@ export class DatabaseListComponent  implements OnInit {
     } else {
        this.databaseInstanceList = [];
     }
+    this.pagination = {
+      currentPage: 1,
+      itemsPerPage: 5,
+      totalItems: this.databaseInstanceList.length
+    }
+    console.log(this.pagination);
   }
 
   constructor (private _router : Router,
@@ -45,8 +55,20 @@ export class DatabaseListComponent  implements OnInit {
       console.log('DatabaseListComponent: factory code = ' + this.factoryCode);
       // reload data
       if (refresh) {
-        this.databaseInstanceList =
+        /*this.databaseInstanceList =
             this._databaseListService.getDBInstancesByFactory(this.factoryCode);
+        this.pagination = {
+            currentPage: 1,
+            itemsPerPage: 10,
+            totalItems: this.databaseInstanceList.length
+        }*/
       }
+  }
+
+  detectChange(event) {
+    console.log('pagination detection');
+    this.pagination = event.pagination;
+    console.log(this.pagination);
+    console.log(this.factoryCode);
   }
 }

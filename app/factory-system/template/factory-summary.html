@@ -10,8 +10,7 @@
             class="md-warn">{{viewMode}}</md-radio-button>
   </md-radio-group>
    <md-content>
-      <app-list [hidden]="!visible.application"
-        [refresh]="visible.application"></app-list>
+      <app-list [hidden]="!visible.application"></app-list>
       <database-list [hidden]="!visible.database"
           [refresh]="visible.database"></database-list>
       <hardware-list [hidden]="!visible.hardware"
