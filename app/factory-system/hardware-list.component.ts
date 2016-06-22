@@ -2,6 +2,7 @@ import {Component, OnInit, Input } from '@angular/core';
 import {CORE_DIRECTIVES} from '@angular/common';
 import {RouteParams} from '@angular/router-deprecated';
 import {MATERIAL_DIRECTIVES} from "ng2-material";
+import * as _ from 'lodash';
 
 import {HardwareListService} from './service/hardware-list.service';
 import {Hardware} from '../factory-hardware/model/hardware';
@@ -18,11 +19,13 @@ export class HardwareListComponent implements OnInit {
   condition: string[];
   pagination = {
     currentPage: 1,
-    itemsPerPage: 5,
+    itemsPerPage: 15,
     totalItems: 0
   };
-  availableLength = [5, 10];
+  availableLength = [5, 10, 15];
   pagedHardwareList: Array<any> = [];
+  selectedCondition: string;
+  filteredList: Array<any> = [];
 
   ngOnInit() {
     console.log("ngOnInit of hardware list component fired.");
@@ -34,13 +37,10 @@ export class HardwareListComponent implements OnInit {
        this.hardwareList = [];
     }
     this.condition = this._hardwareListService.getCondition();
-    this.pagination = {
-      currentPage: 1,
-      itemsPerPage: 5,
-      totalItems: this.hardwareList.length
-    }
-    console.log(this.pagination);
+    this.selectedCondition = this.condition[0];
+    this.onFilterCondition(this.selectedCondition);
     this.refreshHardwardList();
+    console.log(this.pagination);
   }
 
   constructor(private _hardwareListService: HardwareListService,
@@ -49,8 +49,8 @@ export class HardwareListComponent implements OnInit {
 
   refreshHardwardList() {
     let start = (this.pagination.currentPage - 1) * this.pagination.itemsPerPage,
-      end = start + this.pagination.itemsPerPage;
-    this.pagedHardwareList = this.hardwareList.slice(start, end);
+        end = start + this.pagination.itemsPerPage;
+    this.pagedHardwareList = this.filteredList.slice(start, end);
   }
 
   detectChange(event) {
@@ -58,5 +58,21 @@ export class HardwareListComponent implements OnInit {
     this.pagination = event.pagination;
     this.refreshHardwardList();
     console.log(this.pagination);
+  }
+
+  onFilterCondition(condition: string) {
+      this.selectedCondition = condition;
+      console.log("Hardware filter condition: " + this.selectedCondition);
+      let ref = this;
+      ref.filteredList.length = 0;
+      _.forEach(this.hardwareList, hw => {
+        if (_.isEqual(this.selectedCondition, 'All') ||
+                  _.isEqual(hw.condition, this.selectedCondition)) {
+            ref.filteredList.push(hw);
+        }
+      });
+      this.pagination.currentPage = 1;
+      this.pagination.totalItems = ref.filteredList.length;
+      this.refreshHardwardList();
   }
 }
