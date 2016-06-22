@@ -1,9 +1,5 @@
   <md-content>
-    <div layout="row">
-      <md-subheader flex class="md-no-sticky">Application List</md-subheader>
-      <md-pagination name="app" flex="40" [model]="pagination" (on-pagination-change)="detectChange($event)"
-        [items-per-page-options]="availableLength"></md-pagination>
-    </div>
+    <md-subheader flex class="md-no-sticky">Application List</md-subheader>
     <md-data-table layout-fill>
       <thead>
         <tr>
@@ -14,7 +10,7 @@
        </tr>
      </thead>
      <tbody>
-       <tr *ngFor="let app of pagedAppList">
+       <tr *ngFor="let app of selectedAppList">
          <td class="md-text-cell">{{ app.id }}</td>
          <td class="md-text-cell">{{ app.name }}</td>
          <td class="md-text-cell">{{ app.appType }}</td>
@@ -23,9 +19,4 @@
        <br />
      </tbody>
     </md-data-table>
-    <div layout="row">
-      <span flex></span>
-      <md-pagination name="app" flex="40" [model]="pagination" (on-pagination-change)="detectChange($event)"
-        [items-per-page-options]="availableLength"></md-pagination>
-    </div>
   </md-content>
