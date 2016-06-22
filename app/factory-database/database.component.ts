@@ -9,7 +9,7 @@ import {DatabaseInstance} from './model/database-instance';
 
 @Component({
     selector: 'database',
-    directives: [/*MATERIAL_DIRECTIVES,*/ SchemaUsageChartComponent, SchemaStatChartComponent ],
+    directives: [SchemaUsageChartComponent, SchemaStatChartComponent ],
     providers: [DatabaseService],
     templateUrl: 'app/factory-database/template/database.html'
 })

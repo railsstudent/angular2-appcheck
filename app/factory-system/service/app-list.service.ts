@@ -16,7 +16,6 @@ export class AppListService {
     constructor(_factoryService: FactoryService) {
       let factories =  _factoryService.getFactories();
       let chance = new Chance();
-      let numApplications: number = chance.integer({min: 5, max: 50});
       let ref = this;
       let appId : number;
 
@@ -24,7 +23,8 @@ export class AppListService {
 
       appId = 1;
       _.forEach(factories, function(factory) {
-          var appArray = [];
+          let appArray = [];
+          let numApplications: number = chance.integer({min: 5, max: 50});
           _.forEach (_.range(0, numApplications, 1), function(i) {
               let app_name = chance.sentence({words: 3})
               let typeIdx = chance.integer({min: 0, max: ref.appTypeList.length - 1});
