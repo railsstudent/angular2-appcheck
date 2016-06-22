@@ -1,8 +1,14 @@
 <md-content>
     <div layout="row">
       <md-subheader flex class="md-no-sticky">Virtual Machine List</md-subheader>
+      <md-pagination name="vm" flex="40" [model]="pagination"
+          (on-pagination-change)="detectChange($event)"
+          [items-per-page-options]="availableLength"></md-pagination>
+    </div>
+    <div layout="row">
+      <span flex></span>
       <select flex="20">
-        <option *ngFor="let c of condition" value="{{c}}">{{c}}</option>
+          <option *ngFor="let c of condition" value="{{c}}">{{c}}</option>
       </select>
     </div>
     <md-data-table layout-fill>
@@ -21,7 +27,7 @@
        </tr>
      </thead>
      <tbody>
-       <tr *ngFor="let vm of vmList">
+       <tr *ngFor="let vm of pagedVMList">
          <td class="md-text-cell">{{ vm.id }}</td>
          <td class="md-text-cell">{{ vm.ipAddress }}</td>
          <td class="md-text-cell">{{ vm.dns }}</td>
@@ -36,4 +42,10 @@
        <br/>
      </tbody>
      </md-data-table>
+     <div layout="row">
+       <span flex></span>
+       <md-pagination name="vm" flex="40" [model]="pagination"
+           (on-pagination-change)="detectChange($event)"
+           [items-per-page-options]="availableLength"></md-pagination>
+     </div>
   </md-content>

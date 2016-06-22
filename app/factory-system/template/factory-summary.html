@@ -12,9 +12,7 @@
    <md-content>
       <app-list [hidden]="!visible.application"></app-list>
       <database-list [hidden]="!visible.database"></database-list>
-      <hardware-list [hidden]="!visible.hardware"
-              [refresh]="visible.hardware"></hardware-list>
-      <virtual-machine-list [hidden]="!visible.vm"
-              [refresh]="visible.vm"></virtual-machine-list>
+      <hardware-list [hidden]="!visible.hardware"></hardware-list>
+      <virtual-machine-list [hidden]="!visible.vm"></virtual-machine-list>
   </md-content>
 </div>
