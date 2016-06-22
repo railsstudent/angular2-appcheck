@@ -16,7 +16,11 @@ export class DatabaseListComponent  implements OnInit {
 
   databaseInstanceList : Array<DatabaseInstance>;
   factoryCode : string;
-  pagination = {};
+  pagination = {
+    currentPage: 1,
+    itemsPerPage: 5,
+    totalItems: 0
+  };
   availableLength = [5];
 
   ngOnInit() {
