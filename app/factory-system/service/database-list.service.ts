@@ -25,7 +25,7 @@ export class DatabaseListService {
       dbSchemaId = 1;
       _.forEach(factories, function(factory) {
           let dbArray = new Array<DatabaseInstance>();
-          let numDatabases = chance.integer({min: 2, max: 10})
+          let numDatabases = chance.integer({min: 2, max: 15})
           _.forEach (_.range(0, numDatabases, 1), function(i) {
               let dbSchema = new Array<DatabaseSchema>();
               let numSchemas = chance.integer({min: 1, max: 10});
