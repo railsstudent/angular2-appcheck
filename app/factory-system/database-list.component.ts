@@ -22,6 +22,7 @@ export class DatabaseListComponent  implements OnInit {
     totalItems: 0
   };
   availableLength = [5];
+  pagedDatabaseList: Array<any> = [];
 
   ngOnInit() {
     console.log("ngOnInit of database list component fired.");
@@ -38,12 +39,12 @@ export class DatabaseListComponent  implements OnInit {
       totalItems: this.databaseInstanceList.length
     }
     console.log(this.pagination);
+    this.refreshDatabaseList();
   }
 
   constructor (private _router : Router,
       private _routeParams: RouteParams,
       private _databaseListService: DatabaseListService) {
-
   }
 
   onSelectDBInstance(instance: DatabaseInstance) {
@@ -53,26 +54,16 @@ export class DatabaseListComponent  implements OnInit {
       this._router.navigate(['DatabaseInstance', { code:  instance.factory, dbId: instance.id }]);
   }
 
-  @Input()
-  set refresh(refresh: boolean) {
-      console.log('DatabaseListComponent: refresh = ' + refresh);
-      console.log('DatabaseListComponent: factory code = ' + this.factoryCode);
-      // reload data
-      if (refresh) {
-        /*this.databaseInstanceList =
-            this._databaseListService.getDBInstancesByFactory(this.factoryCode);
-        this.pagination = {
-            currentPage: 1,
-            itemsPerPage: 10,
-            totalItems: this.databaseInstanceList.length
-        }*/
-      }
+  refreshDatabaseList() {
+    let start = (this.pagination.currentPage - 1) * this.pagination.itemsPerPage,
+      end = start + this.pagination.itemsPerPage;
+    this.pagedDatabaseList = this.databaseInstanceList.slice(start, end);
   }
 
   detectChange(event) {
     console.log('pagination detection');
     this.pagination = event.pagination;
+    this.refreshDatabaseList();
     console.log(this.pagination);
-    console.log(this.factoryCode);
   }
 }
