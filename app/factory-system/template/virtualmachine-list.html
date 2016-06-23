@@ -1,13 +1,13 @@
 <md-content>
     <div layout="row">
       <md-subheader flex class="md-no-sticky">Virtual Machine List</md-subheader>
-      <md-pagination name="vm" flex="35" [model]="pagination"
+      <md-pagination name="vm" flex="40" [model]="pagination"
           (on-pagination-change)="detectChange($event)"
           [items-per-page-options]="availableLength"></md-pagination>
     </div>
     <div layout="row">
       <span flex></span>
-      <select flex="25">
+      <select flex="25" (change)="onFilterCondition($event.target.value)">
           <option *ngFor="let c of condition" value="{{c}}">{{c}}</option>
       </select>
     </div>
@@ -44,7 +44,7 @@
      </md-data-table>
      <div layout="row">
        <span flex></span>
-       <md-pagination name="vm" flex="35" [model]="pagination"
+       <md-pagination name="vm" flex="40" [model]="pagination"
            (on-pagination-change)="detectChange($event)"
            [items-per-page-options]="availableLength"></md-pagination>
      </div>

@@ -2,6 +2,7 @@ import {Component, OnInit, Input } from '@angular/core';
 import {CORE_DIRECTIVES} from '@angular/common';
 import {RouteParams} from '@angular/router-deprecated';
 import {MATERIAL_DIRECTIVES} from "ng2-material";
+import * as _ from 'lodash';
 
 import {VirtualMachineListService} from './service/virtualmachine-list.service';
 import {VirtualMachine} from '../factory-virtualmachine/model/virtual-machine';
@@ -22,8 +23,10 @@ export class VirtualMachineListComponent implements OnInit {
     itemsPerPage: 5,
     totalItems: 0
   };
-  availableLength = [5,10];
+  availableLength = [5,10,15];
   pagedVMList: Array<any> = [];
+  selectedCondition: string;
+  filteredList: Array<any> = [];
 
   ngOnInit() {
     console.log("ngOnInit of virtual machine list component fired.");
@@ -34,12 +37,8 @@ export class VirtualMachineListComponent implements OnInit {
        this.vmList = [];
     }
     this.condition = this._vmListService.getCondition();
-    this.pagination = {
-      currentPage: 1,
-      itemsPerPage: 5,
-      totalItems: this.vmList.length
-    }
-    console.log(this.pagination);
+    this.selectedCondition = this.condition[0];
+    this.onFilterCondition(this.selectedCondition);
     this.refreshVMList();
   }
 
@@ -50,7 +49,7 @@ export class VirtualMachineListComponent implements OnInit {
   refreshVMList() {
     let start = (this.pagination.currentPage - 1) * this.pagination.itemsPerPage,
       end = start + this.pagination.itemsPerPage;
-    this.pagedVMList = this.vmList.slice(start, end);
+    this.pagedVMList = this.filteredList.slice(start, end);
   }
 
   detectChange(event) {
@@ -58,5 +57,21 @@ export class VirtualMachineListComponent implements OnInit {
     this.pagination = event.pagination;
     this.refreshVMList();
     console.log(this.pagination);
+  }
+
+  onFilterCondition(condition: string) {
+      this.selectedCondition = condition;
+      console.log("Hardware filter condition: " + this.selectedCondition);
+      let ref = this;
+      ref.filteredList.length = 0;
+      _.forEach(this.vmList, vm => {
+        if (_.isEqual(this.selectedCondition, 'All') ||
+                  _.isEqual(vm.condition, this.selectedCondition)) {
+            ref.filteredList.push(vm);
+        }
+      });
+      this.pagination.currentPage = 1;
+      this.pagination.totalItems = ref.filteredList.length;
+      this.refreshVMList();
   }
 }
