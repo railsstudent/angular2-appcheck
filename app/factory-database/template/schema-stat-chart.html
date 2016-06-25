@@ -1,9 +1,8 @@
 <h4>Schema Object Statistics</h4>
 <base-chart class="chart"
-           [data]="barChartData"
+           [datasets]="barChartData"
            [labels]="barChartLabels"
            [options]="barChartOptions"
-           [series]="barChartSeries"
            [legend]="barChartLegend"
            [chartType]="barChartType"
            (chartHover)="chartHovered($event)"

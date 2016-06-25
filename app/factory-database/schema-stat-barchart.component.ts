@@ -25,7 +25,7 @@ export class SchemaStatChartComponent implements OnInit {
     private barChartLabels = [];
     private barChartSeries = ['# Tables', '# Stored Procedures', '# Functions', '# Indexes'];
     // tables, stored procedure, functions, indexes
-    private barChartData = [];
+    private barChartData : any[] = [];
     public barChartType = 'bar';
     private barChartLegend : boolean = true;
 
@@ -59,10 +59,10 @@ export class SchemaStatChartComponent implements OnInit {
               numFunc.push(schema.numFunctions);
               numIndexes.push(schema.numIndexes);
          });
-         ref.barChartData.push(numTables);
-         ref.barChartData.push(numSP);
-         ref.barChartData.push(numFunc);
-         ref.barChartData.push(numIndexes);
+         ref.barChartData.push({ data: numTables, label: '# Tables' });
+         ref.barChartData.push({ data: numSP, label: '# Stored Procedures'  });
+         ref.barChartData.push({ data: numFunc, label: '# Functions' });
+         ref.barChartData.push({ data: numIndexes, label: '# Indexes' });
        }
     }
   }
