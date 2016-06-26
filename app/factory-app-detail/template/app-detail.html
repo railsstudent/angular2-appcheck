@@ -7,8 +7,13 @@
     <h3>Version: {{appDetail.version}}</h3>
     <md-content>
       <md-list>
-        <md-subheader class="md-no-sticky">Dependencies</md-subheader>
-        <md-list-item class="md-3-line" *ngFor="#d of appDetail.dependencies; #index=index">
+        <div layout="row">
+          <md-subheader flex class="md-no-sticky">Dependencies</md-subheader>
+          <md-pagination name="dependencies" flex="40" [model]="pagination"
+            (on-pagination-change)="detectChange($event)"
+            [items-per-page-options]="availableLength"></md-pagination>
+        </div>
+        <md-list-item class="md-3-line" *ngFor="let d of pagedAppDetailList">
           <div class="md-list-item-text" layout="column">
             <h3>Name: {{ d.name }}</h3>
             <h4>Type: {{ d.type }}</h4>
@@ -19,7 +24,20 @@
       </md-list>
     </md-content>
   </div>
-  <button md-raised-button class="md-accent md-hue-1" (click)="onReturn(appDetail)">Back</button>
+  <div layout="row">
+    <button md-raised-button flex class="md-accent md-hue-1" (click)="onReturn(appDetail)">Back</button>
+    <span flex></span>
+    <span flex></span>
+    <span flex></span>
+    <span flex></span>
+    <span flex></span>
+    <span flex></span>
+    <span flex></span>
+    <span flex></span>
+    <md-pagination name="dependencies" flex="40" [model]="pagination"
+      (on-pagination-change)="detectChange($event)"
+      [items-per-page-options]="availableLength"></md-pagination>
+  </div>
 </div>
 <div [hidden]="appDetail">
    <div>
