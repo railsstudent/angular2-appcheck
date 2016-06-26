@@ -24,20 +24,7 @@
       </md-list>
     </md-content>
   </div>
-  <div layout="row">
-    <button md-raised-button flex class="md-accent md-hue-1" (click)="onReturn(appDetail)">Back</button>
-    <span flex></span>
-    <span flex></span>
-    <span flex></span>
-    <span flex></span>
-    <span flex></span>
-    <span flex></span>
-    <span flex></span>
-    <span flex></span>
-    <md-pagination name="dependencies" flex="40" [model]="pagination"
-      (on-pagination-change)="detectChange($event)"
-      [items-per-page-options]="availableLength"></md-pagination>
-  </div>
+  <button md-raised-button flex class="md-accent md-hue-1" (click)="onReturn(appDetail)">Back</button>
 </div>
 <div [hidden]="appDetail">
    <div>
