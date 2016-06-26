@@ -19,19 +19,24 @@
   var packages = {
     'app':                        { main: 'main.js',  defaultExtension: 'js' },
     'rxjs':                       { defaultExtension: 'js' },
-    'ng2-material': {
-       defaultExtension: 'js', main: 'index.js'
-    },
-    'ng2-charts': {
-       defaultExtension: 'js', main: 'ng2-charts.js'
-    },
-    'angular2-in-memory-web-api': { main: 'index.js', defaultExtension: 'js' },
-    '@angular2-material/core': {defaultExtension: 'js', main: 'core.js'},
-    '@angular2-material/sidenav': {defaultExtension: 'js', main: 'sidenav.js'},
-    '@angular2-material/radio': {defaultExtension: 'js', main: 'radio.js'},
-    '@angular2-material/checkbox': {defaultExtension: 'js', main: 'checkbox.js'},
-    '@angular2-material/toolbar': {defaultExtension: 'js', main: 'toolbar.js'}
+    'ng2-material': { defaultExtension: 'js', main: 'index.js' },
+    'ng2-charts': { defaultExtension: 'js', main: 'ng2-charts.js' },
+    'angular2-in-memory-web-api': { main: 'index.js', defaultExtension: 'js' }
   };
+
+  var angularMaterialPackageNames = [
+    'core',
+    'sidenav',
+    'radio',
+    'checkbox',
+    'toolbar'
+  ];
+
+  // Individual files (~300 requests):
+  function angularMaterialJsIndex(pkgName) {
+    packages['@angular2-material/'+pkgName] = { main: pkgName + '.js', defaultExtension: 'js' };
+  }
+
   var ngPackageNames = [
     'common',
     'compiler',
@@ -56,6 +61,8 @@
   var setPackageConfig = packIndex;
   // Add package entries for angular packages
   ngPackageNames.forEach(setPackageConfig);
+  // Add package entries for angular material
+  angularMaterialPackageNames.forEach(angularMaterialJsIndex);
   var config = {
     map: map,
     packages: packages

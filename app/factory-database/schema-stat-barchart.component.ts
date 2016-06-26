@@ -59,10 +59,11 @@ export class SchemaStatChartComponent implements OnInit {
               numFunc.push(schema.numFunctions);
               numIndexes.push(schema.numIndexes);
          });
-         ref.barChartData.push({ data: numTables, label: '# Tables' });
-         ref.barChartData.push({ data: numSP, label: '# Stored Procedures'  });
-         ref.barChartData.push({ data: numFunc, label: '# Functions' });
-         ref.barChartData.push({ data: numIndexes, label: '# Indexes' });
+         ref.barChartData = [{ data: numTables, label: '# Tables' },
+                             { data: numSP, label: '# Stored Procedures' },
+                             { data: numFunc, label: '# Functions' },
+                             { data: numIndexes, label: '# Indexes' }
+                            ];
        }
     }
   }

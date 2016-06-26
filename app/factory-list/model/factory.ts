@@ -1,4 +1,3 @@
-
 export class Factory {
 
   code: string;

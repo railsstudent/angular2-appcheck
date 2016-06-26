@@ -1,6 +1,5 @@
 import {Condition} from './condition-enum';
 
-
 export class Hardware {
 
   id: number;

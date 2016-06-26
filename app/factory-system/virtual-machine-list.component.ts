@@ -20,7 +20,7 @@ export class VirtualMachineListComponent implements OnInit {
   condition: string[];
   pagination = {
     currentPage: 1,
-    itemsPerPage: 5,
+    itemsPerPage: 15,
     totalItems: 0
   };
   availableLength = [5,10,15];

@@ -17,7 +17,7 @@ import {MdRadioButton, MdRadioGroup, MdRadioDispatcher} from '@angular2-material
   providers: [MdRadioDispatcher],
   styles: [`
     md-radio-button {
-      margin: 16px;
+      margin: 24px;
     }
       `
   ]
