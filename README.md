@@ -1,4 +1,4 @@
-# Angular 2 Factory Application Check and Inventory System
+# Angular 2 Application Version Checker and Inventory System
 
 Angular 2 Project that demonstrates the usage of angular2 material components (ng2-material) and angular2 charting components (ng2-charts).
 
